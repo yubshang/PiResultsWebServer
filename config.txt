@@ -1,0 +1,4 @@
+[Options]
+cache_html=true
+cache_directory=./html_cache
+result_directory=./results

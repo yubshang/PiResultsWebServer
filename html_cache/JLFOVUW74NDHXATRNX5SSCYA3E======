@@ -1,0 +1,550 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+/*
+table, th, td {
+    border: 1px solid black;
+    border-collapse: collapse;
+}
+*/
+
+table.sortable thead {
+    background-color:#eee;
+    color:#666666;
+    font-weight: bold;
+    cursor: default;
+}
+
+/*
+th, td {
+    padding: 5px;
+}
+*/
+
+.table th, .table td{
+    text-align: center;
+}
+</style>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css">
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+<script src="/static/sortable.js"></script>
+</head>
+<body>
+
+<div class="row">
+<div class="col-md-6">
+<table class="sortable table table-bordered">
+  <tr>
+    <th class="col-sm-2">Result id</th>
+    <th class="col-sm-2">Sequence Number Anomaly</th>
+    <th class="col-sm-2">UDP Traceroute Succeed</th>
+    <th class="col-sm-2">HTTP GET Status</th>
+    <th class="col-sm-2">DNS Tampering</th>
+    <th class="col-sm-2">Block Page</th>
+  </tr>
+<tr><td>4shared.com</td><td class= success>False</td><td class= danger>False</td><td class= warning>301</td><td class= success>False</td><td class= success>False</td></tr>
+<tr><td>quora.com</td><td class= success>False</td><td class= danger>False</td><td class= warning>301</td><td class= success>False</td><td class= success>False</td></tr>
+<tr><td>slickdeals.net</td><td class= success>False</td><td class= danger>False</td><td class= success>200</td><td class= success>False</td><td> </td></tr>
+<tr><td>stackexchange.com</td><td class= success>False</td><td class= danger>False</td><td class= success>200</td><td class= success>False</td><td class= success>False</td></tr>
+<tr><td>whatsapp.com</td><td class= success>False</td><td class= danger>False</td><td class= warning>301</td><td class= success>False</td><td class= success>False</td></tr>
+<tr><td>glassdoor.com</td><td class= success>False</td><td class= danger>False</td><td class= danger>403</td><td class= success>False</td><td> </td></tr>
+<tr><td>accuweather.com</td><td class= success>False</td><td class= danger>False</td><td class= warning>301</td><td class= success>False</td><td class= success>False</td></tr>
+<tr><td>flipkart.com</td><td class= success>False</td><td class= danger>False</td><td class= warning>301</td><td class= success>False</td><td class= success>False</td></tr>
+<tr><td>tmall.com</td><td class= success>False</td><td class= danger>False</td><td class= warning>302</td><td class= success>False</td><td class= success>False</td></tr>
+<tr><td>taleo.net</td><td class= success>False</td><td class= danger>False</td><td class= success>200</td><td class= success>False</td><td> </td></tr>
+<tr><td>huanqiu.com</td><td class= success>False</td><td class= danger>False</td><td class= success>200</td><td class= success>False</td><td> </td></tr>
+<tr><td>google.fr</td><td class= success>False</td><td class= danger>False</td><td class= warning>301</td><td class= success>False</td><td class= success>False</td></tr>
+<tr><td>china.com</td><td class= success>False</td><td class= danger>False</td><td class= success>200</td><td class= success>False</td><td> </td></tr>
+<tr><td>expedia.com</td><td class= success>False</td><td class= danger>False</td><td class= warning>301</td><td class= success>False</td><td class= success>False</td></tr>
+<tr><td>39.net</td><td class= success>False</td><td class= danger>False</td><td class= danger>403</td><td class= success>False</td><td> </td></tr>
+<tr><td>styletv.com.cn</td><td class= success>False</td><td class= danger>False</td><td class= warning>301</td><td class= success>False</td><td class= success>False</td></tr>
+<tr><td>naver.com</td><td class= success>False</td><td class= danger>False</td><td class= warning>301</td><td class= success>False</td><td class= success>False</td></tr>
+<tr><td>gfycat.com</td><td class= success>False</td><td class= danger>False</td><td class= success>200</td><td class= success>False</td><td class= success>False</td></tr>
+<tr><td>cntv.cn</td><td class= success>False</td><td class= danger>False</td><td class= warning>301</td><td class= success>False</td><td class= success>False</td></tr>
+<tr><td>ce.cn</td><td class= success>False</td><td class= danger>False</td><td class= success>200</td><td class= success>False</td><td> </td></tr>
+<tr><td>pandora.com</td><td class= success>False</td><td class= danger>False</td><td class= warning>301</td><td class= success>False</td><td class= success>False</td></tr>
+<tr><td>flickr.com</td><td class= success>False</td><td class= danger>False</td><td class= warning>301</td><td class= success>False</td><td class= success>False</td></tr>
+<tr><td>photobucket.com</td><td class= success>False</td><td class= danger>False</td><td class= success>200</td><td class= success>False</td><td> </td></tr>
+<tr><td>nyaa.se</td><td class= success>False</td><td class= danger>False</td><td class= warning>302</td><td class= success>False</td><td class= success>False</td></tr>
+<tr><td>wikia.com</td><td class= success>False</td><td class= danger>False</td><td class= warning>301</td><td class= success>False</td><td class= success>False</td></tr>
+<tr><td>ppomppu.co.kr</td><td class= success>False</td><td class= danger>False</td><td class= success>200</td><td class= success>False</td><td> </td></tr>
+<tr><td>google.ae</td><td class= success>False</td><td class= danger>False</td><td class= warning>301</td><td class= success>False</td><td class= success>False</td></tr>
+<tr><td>autohome.com.cn</td><td class= success>False</td><td class= danger>False</td><td class= warning>301</td><td class= success>False</td><td class= success>False</td></tr>
+<tr><td>hootsuite.com</td><td class= success>False</td><td class= danger>False</td><td class= warning>301</td><td class= success>False</td><td class= success>False</td></tr>
+<tr><td>google.at</td><td class= success>False</td><td class= danger>False</td><td class= warning>301</td><td class= success>False</td><td class= success>False</td></tr>
+<tr><td>google.no</td><td class= success>False</td><td class= danger>False</td><td class= warning>301</td><td class= success>False</td><td class= success>False</td></tr>
+<tr><td>google.nl</td><td class= success>False</td><td class= danger>False</td><td class= warning>301</td><td class= success>False</td><td class= success>False</td></tr>
+<tr><td>tudou.com</td><td class= success>False</td><td class= danger>False</td><td class= warning>301</td><td class= success>False</td><td class= success>False</td></tr>
+<tr><td>nba.com</td><td class= success>False</td><td class= danger>False</td><td class= warning>301</td><td class= success>False</td><td class= success>False</td></tr>
+<tr><td>dropbox.com</td><td class= success>False</td><td class= danger>False</td><td class= warning>301</td><td class= success>False</td><td class= success>False</td></tr>
+<tr><td>libero.it</td><td class= success>False</td><td class= danger>False</td><td class= warning>301</td><td class= success>False</td><td class= success>False</td></tr>
+<tr><td>alipay.com</td><td class= success>False</td><td class= danger>False</td><td class= warning>301</td><td class= success>False</td><td class= success>False</td></tr>
+<tr><td>w3schools.com</td><td class= success>False</td><td class= danger>False</td><td class= warning>301</td><td class= success>False</td><td class= success>False</td></tr>
+<tr><td>infusionsoft.com</td><td class= success>False</td><td class= danger>False</td><td class= warning>301</td><td class= success>False</td><td class= success>False</td></tr>
+<tr><td>trackingclick.net</td><td class= success>False</td><td class= danger>False</td><td class= warning>302</td><td class= success>False</td><td class= success>False</td></tr>
+<tr><td>feedly.com</td><td class= success>False</td><td class= danger>False</td><td class= success>200</td><td class= success>False</td><td class= success>False</td></tr>
+<tr><td>taobao.com</td><td class= success>False</td><td class= danger>False</td><td class= warning>302</td><td class= success>False</td><td class= success>False</td></tr>
+<tr><td>xinhuanet.com</td><td class= success>False</td><td class= danger>False</td><td class= success>200</td><td class= success>False</td><td> </td></tr>
+<tr><td>elance.com</td><td class= success>False</td><td class= danger>False</td><td class= warning>301</td><td class= success>False</td><td class= success>False</td></tr>
+<tr><td>xnxx.com</td><td class= success>False</td><td class= danger>False</td><td class= warning>301</td><td class= success>False</td><td class= success>False</td></tr>
+<tr><td>pcbaby.com.cn</td><td class= success>False</td><td class= danger>False</td><td class= warning>301</td><td class= success>False</td><td class= success>False</td></tr>
+<tr><td>google.com.tw</td><td class= success>False</td><td class= danger>False</td><td class= warning>301</td><td class= success>False</td><td class= success>False</td></tr>
+<tr><td>google.com.tr</td><td class= success>False</td><td class= danger>False</td><td class= warning>301</td><td class= success>False</td><td class= success>False</td></tr>
+<tr><td>2ch.net</td><td class= success>False</td><td class= danger>False</td><td class= danger>403</td><td class= success>False</td><td class= success>False</td></tr>
+<tr><td>adobe.com</td><td class= success>False</td><td class= danger>False</td><td class= warning>301</td><td class= success>False</td><td class= success>False</td></tr>
+<tr><td>spiegel.de</td><td class= success>False</td><td class= danger>False</td><td class= warning>301</td><td class= success>False</td><td class= success>False</td></tr>
+<tr><td>kayak.com</td><td class= success>False</td><td class= danger>False</td><td class= warning>301</td><td class= success>False</td><td class= success>False</td></tr>
+<tr><td>pclady.com.cn</td><td class= success>False</td><td class= danger>False</td><td class= warning>301</td><td class= success>False</td><td class= success>False</td></tr>
+<tr><td>soso.com</td><td class= success>False</td><td class= danger>False</td><td class= warning>302</td><td class= success>False</td><td class= success>False</td></tr>
+<tr><td>sina.com.cn</td><td class= success>False</td><td class= danger>False</td><td class= warning>301</td><td class= success>False</td><td class= success>False</td></tr>
+<tr><td>ameblo.jp</td><td class= success>False</td><td class= danger>False</td><td class= success>200</td><td class= success>False</td><td> </td></tr>
+<tr><td>hotels.com</td><td class= success>False</td><td class= danger>False</td><td class= warning>301</td><td class= success>False</td><td class= success>False</td></tr>
+<tr><td>bankofamerica.com</td><td class= success>False</td><td class= danger>False</td><td class= warning>301</td><td class= success>False</td><td class= success>False</td></tr>
+<tr><td>hostgator.com</td><td class= success>False</td><td class= danger>False</td><td class= warning>301</td><td class= success>False</td><td class= success>False</td></tr>
+<tr><td>forbes.com</td><td class= success>False</td><td class= danger>False</td><td class= warning>301</td><td class= success>False</td><td class= success>False</td></tr>
+<tr><td>livejasmin.com</td><td class= success>False</td><td class= danger>False</td><td class= warning>301</td><td class= success>False</td><td class= success>False</td></tr>
+<tr><td>onclickads.net</td><td class= success>False</td><td class= danger>False</td><td class= warning>302</td><td class= success>False</td><td class= success>False</td></tr>
+<tr><td>google.com.hk</td><td class= success>False</td><td class= danger>False</td><td class= warning>301</td><td class= success>False</td><td class= success>False</td></tr>
+<tr><td>abs-cbnnews.com</td><td class= success>False</td><td class= danger>False</td><td class= warning>301</td><td class= success>False</td><td class= success>False</td></tr>
+<tr><td>justdial.com</td><td class= success>False</td><td class= danger>False</td><td class= warning>301</td><td class= success>False</td><td class= success>False</td></tr>
+<tr><td>bitly.com</td><td class= success>False</td><td class= danger>False</td><td class= warning>302</td><td class= success>False</td><td class= success>False</td></tr>
+<tr><td>detik.com</td><td class= success>False</td><td class= danger>False</td><td class= warning>301</td><td class= success>False</td><td class= success>False</td></tr>
+<tr><td>dailymail.co.uk</td><td class= success>False</td><td class= danger>False</td><td class= warning>301</td><td class= success>False</td><td class= success>False</td></tr>
+<tr><td>extratorrent.cc</td><td class= success>False</td><td class= danger>False</td><td class= success>200</td><td class= success>False</td><td> </td></tr>
+<tr><td>diply.com</td><td class= success>False</td><td class= danger>False</td><td class= success>200</td><td class= success>False</td><td class= success>False</td></tr>
+<tr><td>yahoo.co.jp</td><td class= success>False</td><td class= danger>False</td><td class= warning>301</td><td class= success>False</td><td class= success>False</td></tr>
+<tr><td>vimeo.com</td><td class= success>False</td><td class= danger>False</td><td class= warning>301</td><td class= success>False</td><td class= success>False</td></tr>
+<tr><td>coccoc.com</td><td class= success>False</td><td class= danger>False</td><td class= success>200</td><td class= success>False</td><td> </td></tr>
+<tr><td>soundcloud.com</td><td class= success>False</td><td class= danger>False</td><td class= warning>302</td><td class= success>False</td><td class= success>False</td></tr>
+<tr><td>hulu.com</td><td class= success>False</td><td class= danger>False</td><td class= warning>301</td><td class= success>False</td><td class= success>False</td></tr>
+<tr><td>myntra.com</td><td class= success>False</td><td class= danger>False</td><td class= warning>301</td><td class= success>False</td><td class= success>False</td></tr>
+<tr><td>amazon.de</td><td class= success>False</td><td class= danger>False</td><td class= warning>301</td><td class= success>False</td><td class= success>False</td></tr>
+<tr><td>cnet.com</td><td class= success>False</td><td class= danger>False</td><td class= warning>301</td><td class= success>False</td><td class= success>False</td></tr>
+<tr><td>xda-developers.com</td><td class= success>False</td><td class= danger>False</td><td class= warning>301</td><td class= success>False</td><td class= success>False</td></tr>
+<tr><td>adf.ly</td><td class= success>False</td><td class= danger>False</td><td class= success>200</td><td class= success>False</td><td> </td></tr>
+<tr><td>google.es</td><td class= success>False</td><td class= danger>False</td><td class= warning>301</td><td class= danger>True</td><td class= success>False</td></tr>
+<tr><td>indiatimes.com</td><td class= success>False</td><td class= danger>False</td><td class= warning>301</td><td class= success>False</td><td class= success>False</td></tr>
+<tr><td>qq.com</td><td class= success>False</td><td class= danger>False</td><td class= warning>302</td><td class= success>False</td><td class= success>False</td></tr>
+<tr><td>paypal.com</td><td class= success>False</td><td class= danger>False</td><td class= warning>302</td><td class= success>False</td><td class= success>False</td></tr>
+<tr><td>leboncoin.fr</td><td class= success>False</td><td class= danger>False</td><td class= warning>301</td><td class= success>False</td><td class= success>False</td></tr>
+<tr><td>google.com.co</td><td class= success>False</td><td class= danger>False</td><td class= warning>301</td><td class= success>False</td><td class= success>False</td></tr>
+<tr><td>eksisozluk.com</td><td class= success>False</td><td class= danger>False</td><td class= warning>301</td><td class= success>False</td><td class= success>False</td></tr>
+<tr><td>wsj.com</td><td class= success>False</td><td class= danger>False</td><td class= warning>301</td><td class= success>False</td><td class= success>False</td></tr>
+<tr><td>google.ru</td><td class= success>False</td><td class= danger>False</td><td class= warning>301</td><td class= success>False</td><td class= success>False</td></tr>
+<tr><td>allegro.pl</td><td class= success>False</td><td class= danger>False</td><td class= success>200</td><td class= success>False</td><td> </td></tr>
+<tr><td>office365.com</td><td class= success>False</td><td class= danger>False</td><td class= warning>302</td><td class= success>False</td><td class= success>False</td></tr>
+<tr><td>google.ro</td><td class= success>False</td><td class= danger>False</td><td class= warning>301</td><td class= success>False</td><td class= success>False</td></tr>
+<tr><td>nih.gov</td><td class= success>False</td><td class= danger>False</td><td class= success>200</td><td class= success>False</td><td class= success>False</td></tr>
+<tr><td>linkedin.com</td><td class= success>False</td><td class= danger>False</td><td class= warning>301</td><td class= success>False</td><td class= success>False</td></tr>
+<tr><td>ltn.com.tw</td><td class= success>False</td><td class= danger>False</td><td class= warning>301</td><td class= success>False</td><td class= success>False</td></tr>
+<tr><td>retailmenot.com</td><td class= success>False</td><td class= danger>False</td><td class= warning>301</td><td class= success>False</td><td class= success>False</td></tr>
+<tr><td>mama.cn</td><td class= success>False</td><td class= danger>False</td><td class= warning>301</td><td class= success>False</td><td class= success>False</td></tr>
+<tr><td>xhamster.com</td><td class= success>False</td><td class= danger>False</td><td class= success>200</td><td class= success>False</td><td> </td></tr>
+<tr><td>scribd.com</td><td class= success>False</td><td class= danger>False</td><td class= warning>301</td><td class= success>False</td><td class= success>False</td></tr>
+<tr><td>badoo.com</td><td class= success>False</td><td class= danger>False</td><td class= success>200</td><td class= success>False</td><td> </td></tr>
+<tr><td>quikr.com</td><td class= success>False</td><td class= danger>False</td><td class= warning>301</td><td class= success>False</td><td class= success>False</td></tr>
+<tr><td>58.com</td><td class= success>False</td><td class= danger>False</td><td class= success>200</td><td class= success>False</td><td> </td></tr>
+<tr><td>kickass.to</td><td class= success>False</td><td class= danger>False</td><td class= success>200</td><td class= success>False</td><td> </td></tr>
+<tr><td>theadgateway.com</td><td class= success>False</td><td class= danger>False</td><td class= success>200</td><td class= success>False</td><td class= success>False</td></tr>
+<tr><td>bloomberg.com</td><td class= success>False</td><td class= danger>False</td><td class= warning>301</td><td class= success>False</td><td class= success>False</td></tr>
+<tr><td>onet.pl</td><td class= success>False</td><td class= danger>False</td><td class= warning>301</td><td class= success>False</td><td class= success>False</td></tr>
+<tr><td>web.de</td><td class= success>False</td><td class= danger>False</td><td class= success>200</td><td class= success>False</td><td> </td></tr>
+<tr><td>go.com</td><td class= success>False</td><td class= danger>False</td><td class= success>200</td><td class= success>False</td><td> </td></tr>
+<tr><td>doorblog.jp</td><td> </td><td class= danger>False</td><td> </td><td class= success>False</td><td> </td></tr>
+<tr><td>thefreedictionary.com</td><td class= success>False</td><td class= danger>False</td><td class= warning>301</td><td class= success>False</td><td class= success>False</td></tr>
+<tr><td>marca.com</td><td class= success>False</td><td class= danger>False</td><td class= warning>301</td><td class= success>False</td><td class= success>False</td></tr>
+<tr><td>fc2.com</td><td class= success>False</td><td class= danger>False</td><td class= success>200</td><td class= success>False</td><td> </td></tr>
+<tr><td>imdb.com</td><td class= success>False</td><td class= danger>False</td><td class= warning>301</td><td class= success>False</td><td class= success>False</td></tr>
+<tr><td>okcupid.com</td><td class= success>False</td><td class= danger>False</td><td class= warning>302</td><td class= success>False</td><td class= success>False</td></tr>
+<tr><td>bbc.com</td><td class= success>False</td><td class= danger>False</td><td class= warning>301</td><td class= success>False</td><td class= success>False</td></tr>
+<tr><td>google.co.hu</td><td class= success>False</td><td class= danger>False</td><td class= warning>302</td><td class= success>False</td><td class= success>False</td></tr>
+<tr><td>naver.jp</td><td class= success>False</td><td class= danger>False</td><td class= warning>301</td><td class= success>False</td><td class= success>False</td></tr>
+<tr><td>ebay.in</td><td class= success>False</td><td class= danger>False</td><td class= warning>301</td><td class= success>False</td><td class= success>False</td></tr>
+<tr><td>wikipedia.org</td><td class= success>False</td><td class= danger>False</td><td class= warning>301</td><td class= success>False</td><td class= success>False</td></tr>
+<tr><td>privatehomeclips.com</td><td class= success>False</td><td class= danger>False</td><td class= warning>301</td><td class= success>False</td><td class= success>False</td></tr>
+<tr><td>cloudfront.net</td><td> </td><td class= danger>False</td><td> </td><td class= success>False</td><td> </td></tr>
+<tr><td>williamhill.com</td><td class= success>False</td><td class= danger>False</td><td class= warning>301</td><td class= success>False</td><td class= success>False</td></tr>
+<tr><td>adcash.com</td><td class= success>False</td><td class= danger>False</td><td class= warning>301</td><td class= success>False</td><td class= success>False</td></tr>
+<tr><td>ebay.it</td><td class= success>False</td><td class= danger>False</td><td class= warning>301</td><td class= success>False</td><td class= success>False</td></tr>
+<tr><td>t-online.de</td><td class= success>False</td><td class= danger>False</td><td class= warning>301</td><td class= success>False</td><td class= success>False</td></tr>
+<tr><td>archive.org</td><td class= success>False</td><td class= danger>False</td><td class= warning>301</td><td class= success>False</td><td class= success>False</td></tr>
+<tr><td>onlinesbi.com</td><td class= success>False</td><td class= danger>False</td><td class= warning>302</td><td class= success>False</td><td class= success>False</td></tr>
+<tr><td>intoday.in</td><td class= success>False</td><td class= danger>False</td><td class= warning>301</td><td class= success>False</td><td class= success>False</td></tr>
+<tr><td>vipcpms.com</td><td class= success>False</td><td class= danger>False</td><td class= warning>301</td><td class= success>False</td><td class= success>False</td></tr>
+<tr><td>netflix.com</td><td class= success>False</td><td class= danger>False</td><td class= warning>301</td><td class= success>False</td><td class= success>False</td></tr>
+<tr><td>microsoftonline.com</td><td class= success>False</td><td class= danger>False</td><td class= warning>302</td><td class= success>False</td><td class= success>False</td></tr>
+<tr><td>wetransfer.com</td><td class= success>False</td><td class= danger>False</td><td class= warning>301</td><td class= success>False</td><td class= success>False</td></tr>
+<tr><td>youradexchange.com</td><td class= success>False</td><td class= danger>False</td><td class= success>200</td><td class= success>False</td><td class= success>False</td></tr>
+<tr><td>about.com</td><td class= success>False</td><td class= danger>False</td><td class= warning>301</td><td class= success>False</td><td class= success>False</td></tr>
+<tr><td>google.co.za</td><td class= success>False</td><td class= danger>False</td><td class= warning>301</td><td class= success>False</td><td class= success>False</td></tr>
+<tr><td>blogspot.com</td><td class= success>False</td><td class= danger>False</td><td class= warning>301</td><td class= success>False</td><td class= success>False</td></tr>
+<tr><td>engadget.com</td><td class= success>False</td><td class= danger>False</td><td class= warning>301</td><td class= success>False</td><td class= success>False</td></tr>
+<tr><td>google.it</td><td class= success>False</td><td class= danger>False</td><td class= warning>301</td><td class= success>False</td><td class= success>False</td></tr>
+<tr><td>ameba.jp</td><td class= success>False</td><td class= danger>False</td><td class= warning>301</td><td class= success>False</td><td class= success>False</td></tr>
+<tr><td>kickstarter.com</td><td class= success>False</td><td class= danger>False</td><td class= warning>301</td><td class= success>False</td><td class= success>False</td></tr>
+<tr><td>pixiv.net</td><td class= success>False</td><td class= danger>False</td><td class= warning>301</td><td class= success>False</td><td class= success>False</td></tr>
+<tr><td>ndtv.com</td><td class= success>False</td><td class= danger>False</td><td class= warning>301</td><td class= success>False</td><td class= success>False</td></tr>
+<tr><td>google.ie</td><td class= success>False</td><td class= danger>False</td><td class= warning>301</td><td class= success>False</td><td class= success>False</td></tr>
+<tr><td>gsmarena.com</td><td class= success>False</td><td class= danger>False</td><td class= warning>302</td><td class= success>False</td><td class= success>False</td></tr>
+<tr><td>gizmodo.com</td><td class= success>False</td><td class= danger>False</td><td class= warning>302</td><td class= success>False</td><td class= success>False</td></tr>
+<tr><td>nbcnews.com</td><td class= success>False</td><td class= danger>False</td><td class= warning>301</td><td class= success>False</td><td class= success>False</td></tr>
+<tr><td>ebay.co.uk</td><td class= success>False</td><td class= danger>False</td><td class= warning>301</td><td class= success>False</td><td class= success>False</td></tr>
+<tr><td>tianya.cn</td><td class= success>False</td><td class= danger>False</td><td class= warning>301</td><td class= success>False</td><td class= success>False</td></tr>
+<tr><td>rambler.ru</td><td class= success>False</td><td class= danger>False</td><td class= warning>301</td><td class= success>False</td><td class= success>False</td></tr>
+<tr><td>clien.net</td><td class= success>False</td><td class= danger>False</td><td class= success>200</td><td class= success>False</td><td> </td></tr>
+<tr><td>urbandictionary.com</td><td class= success>False</td><td class= danger>False</td><td class= warning>301</td><td class= success>False</td><td class= success>False</td></tr>
+<tr><td>daum.net</td><td class= success>False</td><td class= danger>False</td><td class= warning>302</td><td class= success>False</td><td class= success>False</td></tr>
+<tr><td>fanli.com</td><td class= success>False</td><td class= danger>False</td><td class= warning>301</td><td class= success>False</td><td class= success>False</td></tr>
+<tr><td>google.com.ua</td><td class= success>False</td><td class= danger>False</td><td class= warning>301</td><td class= success>False</td><td class= success>False</td></tr>
+<tr><td>kakaku.com</td><td class= success>False</td><td class= danger>False</td><td class= success>200</td><td class= success>False</td><td> </td></tr>
+<tr><td>ebay.com.au</td><td class= success>False</td><td class= danger>False</td><td class= warning>301</td><td class= success>False</td><td class= success>False</td></tr>
+<tr><td>zillow.com</td><td class= success>False</td><td class= danger>False</td><td class= warning>301</td><td class= success>False</td><td class= success>False</td></tr>
+<tr><td>zendesk.com</td><td class= success>False</td><td class= danger>False</td><td class= warning>301</td><td class= success>False</td><td class= success>False</td></tr>
+<tr><td>google.com.vn</td><td class= success>False</td><td class= danger>False</td><td class= warning>301</td><td class= success>False</td><td class= success>False</td></tr>
+<tr><td>googleusercontent.com</td><td> </td><td class= danger>False</td><td> </td><td class= success>False</td><td> </td></tr>
+<tr><td>time.com</td><td class= success>False</td><td class= danger>False</td><td class= success>200</td><td class= success>False</td><td> </td></tr>
+<tr><td>amazon.com</td><td class= success>False</td><td class= danger>False</td><td class= warning>301</td><td class= success>False</td><td class= success>False</td></tr>
+<tr><td>xywy.com</td><td> </td><td class= danger>False</td><td> </td><td class= success>False</td><td> </td></tr>
+<tr><td>slideshare.net</td><td class= success>False</td><td class= danger>False</td><td class= warning>301</td><td class= success>False</td><td class= success>False</td></tr>
+<tr><td>cnzz.com</td><td class= success>False</td><td class= danger>False</td><td class= success>200</td><td class= success>False</td><td> </td></tr>
+<tr><td>ganji.com</td><td class= success>False</td><td class= danger>False</td><td class= warning>301</td><td class= success>False</td><td class= success>False</td></tr>
+<tr><td>wordpress.com</td><td class= success>False</td><td class= danger>False</td><td class= warning>301</td><td class= success>False</td><td class= success>False</td></tr>
+<tr><td>pinterest.com</td><td class= success>False</td><td class= danger>False</td><td class= warning>301</td><td class= success>False</td><td class= success>False</td></tr>
+<tr><td>instagram.com</td><td class= success>False</td><td class= danger>False</td><td class= warning>301</td><td class= success>False</td><td class= success>False</td></tr>
+<tr><td>hp.com</td><td class= success>False</td><td class= danger>False</td><td class= warning>301</td><td class= success>False</td><td class= success>False</td></tr>
+<tr><td>americanexpress.com</td><td class= success>False</td><td class= danger>False</td><td class= warning>301</td><td class= success>False</td><td class= success>False</td></tr>
+<tr><td>clickyab.com</td><td class= success>False</td><td class= danger>False</td><td class= warning>301</td><td class= success>False</td><td> </td></tr>
+<tr><td>fiverr.com</td><td class= success>False</td><td class= danger>False</td><td class= warning>301</td><td class= success>False</td><td class= success>False</td></tr>
+<tr><td>msn.com</td><td class= success>False</td><td class= danger>False</td><td class= warning>307</td><td class= success>False</td><td class= success>False</td></tr>
+<tr><td>disqus.com</td><td class= success>False</td><td class= danger>False</td><td class= warning>301</td><td class= success>False</td><td class= success>False</td></tr>
+<tr><td>amazon.es</td><td class= success>False</td><td class= danger>False</td><td class= warning>301</td><td class= success>False</td><td class= success>False</td></tr>
+<tr><td>mediafire.com</td><td class= success>False</td><td class= danger>False</td><td class= warning>301</td><td class= success>False</td><td class= success>False</td></tr>
+<tr><td>youku.com</td><td class= success>False</td><td class= danger>False</td><td class= warning>302</td><td class= success>False</td><td class= success>False</td></tr>
+<tr><td>etsy.com</td><td class= success>False</td><td class= danger>False</td><td class= warning>301</td><td class= success>False</td><td class= success>False</td></tr>
+<tr><td>udn.com</td><td class= success>False</td><td class= danger>False</td><td class= warning>302</td><td class= success>False</td><td class= success>False</td></tr>
+<tr><td>amazon.co.uk</td><td class= success>False</td><td class= danger>False</td><td class= warning>301</td><td class= success>False</td><td class= success>False</td></tr>
+<tr><td>dmm.com</td><td class= success>False</td><td class= danger>False</td><td class= warning>301</td><td class= success>False</td><td class= success>False</td></tr>
+<tr><td>bp.blogspot.com</td><td> </td><td class= danger>False</td><td> </td><td class= success>False</td><td> </td></tr>
+<tr><td>fbcdn.net</td><td class= success>False</td><td class= danger>False</td><td class= warning>301</td><td class= success>False</td><td class= success>False</td></tr>
+<tr><td>trulia.com</td><td class= success>False</td><td class= danger>False</td><td class= warning>301</td><td class= success>False</td><td class= success>False</td></tr>
+<tr><td>amazonaws.com</td><td class= success>False</td><td class= danger>False</td><td class= warning>301</td><td class= success>False</td><td class= success>False</td></tr>
+<tr><td>pixnet.net</td><td class= success>False</td><td class= danger>False</td><td class= warning>302</td><td class= success>False</td><td class= success>False</td></tr>
+<tr><td>samsung.com</td><td class= success>False</td><td class= danger>False</td><td class= warning>301</td><td class= success>False</td><td> </td></tr>
+<tr><td>olx.in</td><td class= success>False</td><td class= danger>False</td><td class= success>200</td><td class= success>False</td><td> </td></tr>
+<tr><td>mashable.com</td><td class= success>False</td><td class= danger>False</td><td class= success>200</td><td class= success>False</td><td> </td></tr>
+<tr><td>haosou.com</td><td class= success>False</td><td class= danger>False</td><td class= warning>301</td><td class= success>False</td><td class= success>False</td></tr>
+<tr><td>answers.com</td><td class= success>False</td><td class= danger>False</td><td class= warning>301</td><td class= success>False</td><td class= success>False</td></tr>
+<tr><td>hudong.com</td><td class= success>False</td><td class= danger>False</td><td class= warning>301</td><td class= success>False</td><td class= success>False</td></tr>
+<tr><td>starsports.com</td><td class= success>False</td><td class= danger>False</td><td class= warning>301</td><td class= success>False</td><td class= success>False</td></tr>
+<tr><td>xcar.com.cn</td><td class= success>False</td><td class= danger>False</td><td class= warning>301</td><td class= success>False</td><td class= success>False</td></tr>
+<tr><td>google.de</td><td class= success>False</td><td class= danger>False</td><td class= warning>301</td><td class= success>False</td><td class= success>False</td></tr>
+<tr><td>directrev.com</td><td class= success>False</td><td class= danger>False</td><td class= warning>301</td><td class= success>False</td><td class= success>False</td></tr>
+<tr><td>mailchimp.com</td><td class= success>False</td><td class= danger>False</td><td class= success>200</td><td class= success>False</td><td> </td></tr>
+<tr><td>likes.com</td><td class= success>False</td><td class= danger>False</td><td class= success>200</td><td class= success>False</td><td> </td></tr>
+<tr><td>webmd.com</td><td class= success>False</td><td class= danger>False</td><td class= warning>301</td><td class= success>False</td><td class= success>False</td></tr>
+<tr><td>globo.com</td><td class= success>False</td><td class= danger>False</td><td class= warning>302</td><td class= success>False</td><td class= success>False</td></tr>
+<tr><td>vk.com</td><td class= success>False</td><td class= danger>False</td><td class= warning>302</td><td class= success>False</td><td class= success>False</td></tr>
+<tr><td>outbrain.com</td><td class= success>False</td><td class= danger>False</td><td class= warning>302</td><td class= success>False</td><td class= success>False</td></tr>
+<tr><td>groupon.com</td><td class= success>False</td><td class= danger>False</td><td class= warning>301</td><td class= success>False</td><td class= success>False</td></tr>
+<tr><td>youtube.com</td><td class= success>False</td><td class= danger>False</td><td class= warning>301</td><td class= success>False</td><td class= success>False</td></tr>
+<tr><td>asana.com</td><td class= success>False</td><td class= danger>False</td><td class= warning>301</td><td class= success>False</td><td class= success>False</td></tr>
+<tr><td>ifeng.com</td><td class= success>False</td><td class= danger>False</td><td class= warning>302</td><td class= success>False</td><td class= success>False</td></tr>
+<tr><td>bomb01.com</td><td class= success>False</td><td class= danger>False</td><td class= warning>301</td><td class= success>False</td><td class= success>False</td></tr>
+<tr><td>deviantart.com</td><td class= success>False</td><td class= danger>False</td><td class= danger>403</td><td class= success>False</td><td class= success>False</td></tr>
+<tr><td>enet.com.cn</td><td class= success>False</td><td class= danger>False</td><td class= warning>301</td><td class= success>False</td><td class= success>False</td></tr>
+<tr><td>iqiyi.com</td><td class= danger>True</td><td class= danger>False</td><td class= warning>301</td><td class= success>False</td><td class= success>False</td></tr>
+<tr><td>odesk.com</td><td class= success>False</td><td class= danger>False</td><td class= warning>301</td><td class= success>False</td><td class= success>False</td></tr>
+<tr><td>icloud.com</td><td class= success>False</td><td class= danger>False</td><td class= warning>301</td><td class= success>False</td><td class= success>False</td></tr>
+<tr><td>blogimg.jp</td><td> </td><td class= danger>False</td><td> </td><td class= success>False</td><td> </td></tr>
+<tr><td>trello.com</td><td class= success>False</td><td class= danger>False</td><td class= warning>302</td><td class= success>False</td><td class= success>False</td></tr>
+<tr><td>mobile.de</td><td class= success>False</td><td class= danger>False</td><td class= warning>301</td><td class= success>False</td><td class= success>False</td></tr>
+<tr><td>google.co.kr</td><td class= success>False</td><td class= danger>False</td><td class= warning>301</td><td class= success>False</td><td class= success>False</td></tr>
+<tr><td>bild.de</td><td class= success>False</td><td class= danger>False</td><td class= warning>301</td><td class= success>False</td><td class= success>False</td></tr>
+<tr><td>xe.com</td><td class= success>False</td><td class= danger>False</td><td class= warning>301</td><td class= success>False</td><td class= success>False</td></tr>
+<tr><td>homedepot.com</td><td class= success>False</td><td class= danger>False</td><td class= warning>301</td><td class= success>False</td><td class= success>False</td></tr>
+<tr><td>torrentz.eu</td><td class= success>False</td><td class= danger>False</td><td class= success>200</td><td class= success>False</td><td class= success>False</td></tr>
+<tr><td>livejournal.com</td><td> </td><td class= danger>False</td><td> </td><td class= success>False</td><td> </td></tr>
+<tr><td>bycontext.com</td><td class= success>False</td><td class= danger>False</td><td class= warning>301</td><td class= success>False</td><td class= success>False</td></tr>
+<tr><td>blogfa.com</td><td class= success>False</td><td class= danger>False</td><td class= success>200</td><td class= success>False</td><td> </td></tr>
+<tr><td>repubblica.it</td><td class= success>False</td><td class= danger>False</td><td class= warning>301</td><td class= success>False</td><td class= success>False</td></tr>
+<tr><td>free.fr</td><td class= success>False</td><td class= danger>False</td><td class= warning>302</td><td class= success>False</td><td class= success>False</td></tr>
+<tr><td>livedoor.biz</td><td> </td><td class= danger>False</td><td> </td><td class= success>False</td><td> </td></tr>
+<tr><td>google.ch</td><td class= success>False</td><td class= danger>False</td><td class= warning>301</td><td class= success>False</td><td class= success>False</td></tr>
+<tr><td>google.com.au</td><td class= success>False</td><td class= danger>False</td><td class= warning>301</td><td class= success>False</td><td class= success>False</td></tr>
+<tr><td>google.cn</td><td class= success>False</td><td class= danger>False</td><td class= warning>301</td><td class= success>False</td><td class= success>False</td></tr>
+<tr><td>google.ca</td><td class= success>False</td><td class= danger>False</td><td class= warning>301</td><td class= success>False</td><td class= success>False</td></tr>
+<tr><td>google.cz</td><td class= success>False</td><td class= danger>False</td><td class= warning>301</td><td class= success>False</td><td class= success>False</td></tr>
+<tr><td>chaturbate.com</td><td class= success>False</td><td class= danger>False</td><td class= warning>301</td><td class= success>False</td><td class= success>False</td></tr>
+<tr><td>google.com.sa</td><td class= success>False</td><td class= danger>False</td><td class= warning>301</td><td class= success>False</td><td class= success>False</td></tr>
+<tr><td>milliyet.com.tr</td><td class= success>False</td><td class= danger>False</td><td class= warning>302</td><td class= success>False</td><td class= success>False</td></tr>
+<tr><td>list-manage.com</td><td class= success>False</td><td class= danger>False</td><td class= warning>302</td><td class= success>False</td><td class= success>False</td></tr>
+<tr><td>naukri.com</td><td class= success>False</td><td class= danger>False</td><td class= warning>301</td><td class= success>False</td><td class= success>False</td></tr>
+<tr><td>360.cn</td><td class= success>False</td><td class= danger>False</td><td class= success>200</td><td class= success>False</td><td> </td></tr>
+<tr><td>tripadvisor.com</td><td class= success>False</td><td class= danger>False</td><td class= warning>301</td><td class= success>False</td><td class= success>False</td></tr>
+<tr><td>bilibili.com</td><td class= success>False</td><td class= danger>False</td><td class= warning>301</td><td class= success>False</td><td class= success>False</td></tr>
+<tr><td>jd.com</td><td class= success>False</td><td class= danger>False</td><td class= warning>302</td><td class= success>False</td><td class= success>False</td></tr>
+<tr><td>eyny.com</td><td class= success>False</td><td class= danger>False</td><td class= warning>302</td><td class= success>False</td><td class= success>False</td></tr>
+<tr><td>icc-cricket.com</td><td class= success>False</td><td class= danger>False</td><td class= warning>301</td><td class= success>False</td><td class= success>False</td></tr>
+<tr><td>kompas.com</td><td class= success>False</td><td class= danger>False</td><td class= warning>301</td><td class= success>False</td><td class= success>False</td></tr>
+<tr><td>hdfcbank.com</td><td class= success>False</td><td class= danger>False</td><td class= success>200</td><td class= success>False</td><td class= success>False</td></tr>
+<tr><td>t.co</td><td class= success>False</td><td class= danger>False</td><td class= success>200</td><td class= success>False</td><td class= success>False</td></tr>
+<tr><td>usps.com</td><td class= success>False</td><td class= danger>False</td><td class= warning>302</td><td class= success>False</td><td class= success>False</td></tr>
+<tr><td>surveymonkey.com</td><td class= success>False</td><td class= danger>False</td><td class= warning>301</td><td class= success>False</td><td class= success>False</td></tr>
+<tr><td>googleapis.com</td><td class= success>False</td><td class= danger>False</td><td class= warning>302</td><td class= success>False</td><td class= success>False</td></tr>
+<tr><td>craigslist.org</td><td class= success>False</td><td class= danger>False</td><td class= warning>302</td><td class= success>False</td><td class= success>False</td></tr>
+<tr><td>bet365.com</td><td class= success>False</td><td class= danger>False</td><td class= warning>302</td><td class= success>False</td><td class= success>False</td></tr>
+<tr><td>popads.net</td><td class= success>False</td><td class= danger>False</td><td class= warning>301</td><td class= success>False</td><td class= success>False</td></tr>
+<tr><td>cnn.com</td><td class= success>False</td><td class= danger>False</td><td class= warning>301</td><td class= success>False</td><td class= success>False</td></tr>
+<tr><td>walmart.com</td><td class= success>False</td><td class= danger>False</td><td class= warning>302</td><td class= success>False</td><td class= success>False</td></tr>
+<tr><td>nytimes.com</td><td class= success>False</td><td class= danger>False</td><td class= warning>301</td><td class= success>False</td><td class= success>False</td></tr>
+<tr><td>skype.com</td><td class= success>False</td><td class= danger>False</td><td class= warning>301</td><td class= success>False</td><td class= success>False</td></tr>
+<tr><td>ask.com</td><td class= success>False</td><td class= danger>False</td><td class= warning>301</td><td class= success>False</td><td class= success>False</td></tr>
+<tr><td>aliexpress.com</td><td class= success>False</td><td class= danger>False</td><td class= warning>301</td><td class= success>False</td><td class= success>False</td></tr>
+<tr><td>ok.ru</td><td class= success>False</td><td class= danger>False</td><td class= success>200</td><td class= success>False</td><td> </td></tr>
+<tr><td>youm7.com</td><td class= success>False</td><td class= danger>False</td><td class= >503</td><td class= success>False</td><td class= success>False</td></tr>
+<tr><td>codecanyon.net</td><td class= success>False</td><td class= danger>False</td><td class= success>200</td><td class= success>False</td><td> </td></tr>
+<tr><td>goal.com</td><td class= success>False</td><td class= danger>False</td><td class= warning>301</td><td class= success>False</td><td class= success>False</td></tr>
+<tr><td>secureserver.net</td><td class= success>False</td><td class= danger>False</td><td class= warning>301</td><td class= success>False</td><td class= success>False</td></tr>
+<tr><td>comcast.net</td><td class= success>False</td><td class= danger>False</td><td class= warning>301</td><td class= success>False</td><td class= success>False</td></tr>
+<tr><td>b5m.com</td><td class= success>False</td><td class= danger>False</td><td class= warning>301</td><td class= success>False</td><td class= success>False</td></tr>
+<tr><td>gawker.com</td><td class= success>False</td><td class= danger>False</td><td class= success>200</td><td class= success>False</td><td> </td></tr>
+<tr><td>hstpnetwork.com</td><td class= success>False</td><td class= danger>False</td><td class= success>200</td><td class= success>False</td><td class= success>False</td></tr>
+<tr><td>mobile01.com</td><td class= success>False</td><td class= danger>False</td><td class= warning>301</td><td class= success>False</td><td class= success>False</td></tr>
+<tr><td>wordreference.com</td><td class= success>False</td><td class= danger>False</td><td class= warning>301</td><td class= success>False</td><td class= success>False</td></tr>
+<tr><td>163.com</td><td class= success>False</td><td class= danger>False</td><td class= warning>301</td><td class= success>False</td><td class= success>False</td></tr>
+<tr><td>weebly.com</td><td class= success>False</td><td class= danger>False</td><td class= warning>301</td><td class= success>False</td><td class= success>False</td></tr>
+<tr><td>theguardian.com</td><td class= success>False</td><td class= danger>False</td><td class= warning>301</td><td class= success>False</td><td class= success>False</td></tr>
+<tr><td>wunderground.com</td><td> </td><td class= danger>False</td><td> </td><td class= success>False</td><td> </td></tr>
+<tr><td>spotify.com</td><td class= success>False</td><td class= danger>False</td><td class= warning>301</td><td class= success>False</td><td class= success>False</td></tr>
+<tr><td>reimageplus.com</td><td class= success>False</td><td class= danger>False</td><td class= warning>301</td><td class= success>False</td><td class= success>False</td></tr>
+<tr><td>hao123.com</td><td class= success>False</td><td class= danger>False</td><td class= warning>302</td><td class= success>False</td><td class= success>False</td></tr>
+<tr><td>wp.pl</td><td class= success>False</td><td class= danger>False</td><td class= warning>301</td><td class= success>False</td><td class= success>False</td></tr>
+<tr><td>amazon.fr</td><td class= success>False</td><td class= danger>False</td><td class= warning>301</td><td class= success>False</td><td class= success>False</td></tr>
+<tr><td>mozilla.org</td><td class= success>False</td><td class= danger>False</td><td class= warning>301</td><td class= success>False</td><td class= success>False</td></tr>
+<tr><td>moz.com</td><td class= success>False</td><td class= danger>False</td><td class= success>200</td><td class= success>False</td><td> </td></tr>
+<tr><td>shutterstock.com</td><td class= success>False</td><td class= danger>False</td><td class= warning>301</td><td class= success>False</td><td class= success>False</td></tr>
+<tr><td>webssearches.com</td><td class= success>False</td><td class= danger>False</td><td class= success>200</td><td class= success>False</td><td> </td></tr>
+<tr><td>media.tumblr.com</td><td class= success>False</td><td class= danger>False</td><td class= danger>403</td><td class= success>False</td><td class= success>False</td></tr>
+<tr><td>teepr.com</td><td class= success>False</td><td class= danger>False</td><td class= warning>301</td><td class= success>False</td><td class= success>False</td></tr>
+<tr><td>google.com.mx</td><td class= success>False</td><td class= danger>False</td><td class= warning>301</td><td class= success>False</td><td class= success>False</td></tr>
+<tr><td>google.com.my</td><td class= success>False</td><td class= danger>False</td><td class= warning>301</td><td class= success>False</td><td class= success>False</td></tr>
+<tr><td>livedoor.com</td><td class= success>False</td><td class= danger>False</td><td class= warning>301</td><td class= success>False</td><td class= success>False</td></tr>
+<tr><td>orange.fr</td><td class= success>False</td><td class= danger>False</td><td class= warning>301</td><td class= success>False</td><td class= success>False</td></tr>
+<tr><td>google.gr</td><td class= success>False</td><td class= danger>False</td><td class= warning>301</td><td class= success>False</td><td class= success>False</td></tr>
+<tr><td>ign.com</td><td class= success>False</td><td class= danger>False</td><td class= warning>301</td><td class= success>False</td><td class= success>False</td></tr>
+<tr><td>goo.ne.jp</td><td class= success>False</td><td class= danger>False</td><td class= warning>302</td><td class= success>False</td><td class= success>False</td></tr>
+<tr><td>yelp.com</td><td class= success>False</td><td class= danger>False</td><td class= warning>301</td><td class= success>False</td><td class= success>False</td></tr>
+<tr><td>gome.com.cn</td><td class= success>False</td><td class= danger>False</td><td class= warning>301</td><td class= success>False</td><td class= success>False</td></tr>
+<tr><td>businessinsider.com</td><td class= success>False</td><td class= danger>False</td><td class= warning>302</td><td class= success>False</td><td class= success>False</td></tr>
+<tr><td>loading-delivery1.com</td><td class= success>False</td><td class= danger>False</td><td class= danger>403</td><td class= success>False</td><td class= success>False</td></tr>
+<tr><td>people.com.cn</td><td class= success>False</td><td class= danger>False</td><td class= success>200</td><td class= success>False</td><td> </td></tr>
+<tr><td>dmm.co.jp</td><td class= success>False</td><td class= danger>False</td><td class= warning>301</td><td class= success>False</td><td class= success>False</td></tr>
+<tr><td>xvideos.com</td><td class= success>False</td><td class= danger>False</td><td class= warning>301</td><td class= success>False</td><td class= success>False</td></tr>
+<tr><td>issuu.com</td><td class= success>False</td><td class= danger>False</td><td class= success>200</td><td class= success>False</td><td> </td></tr>
+<tr><td>bleacherreport.com</td><td class= success>False</td><td class= danger>False</td><td class= success>200</td><td class= success>False</td><td class= success>False</td></tr>
+<tr><td>google.com.sg</td><td class= success>False</td><td class= danger>False</td><td class= warning>301</td><td class= success>False</td><td class= success>False</td></tr>
+<tr><td>gap.com</td><td class= success>False</td><td class= danger>False</td><td class= warning>301</td><td class= success>False</td><td class= success>False</td></tr>
+<tr><td>booking.com</td><td class= success>False</td><td class= danger>False</td><td class= warning>301</td><td class= success>False</td><td class= success>False</td></tr>
+<tr><td>wellsfargo.com</td><td class= success>False</td><td class= danger>False</td><td class= warning>301</td><td class= success>False</td><td class= success>False</td></tr>
+<tr><td>lady8844.com</td><td class= success>False</td><td class= danger>False</td><td class= warning>301</td><td class= success>False</td><td class= success>False</td></tr>
+<tr><td>meetup.com</td><td class= success>False</td><td class= danger>False</td><td class= warning>302</td><td class= success>False</td><td class= success>False</td></tr>
+<tr><td>eventbrite.com</td><td class= success>False</td><td class= danger>False</td><td class= warning>301</td><td class= success>False</td><td class= success>False</td></tr>
+<tr><td>wired.com</td><td class= success>False</td><td class= danger>False</td><td class= warning>302</td><td class= success>False</td><td class= success>False</td></tr>
+<tr><td>blogger.com</td><td class= success>False</td><td class= danger>False</td><td class= warning>301</td><td class= success>False</td><td class= success>False</td></tr>
+<tr><td>stumbleupon.com</td><td class= success>False</td><td class= danger>False</td><td class= warning>301</td><td class= success>False</td><td class= success>False</td></tr>
+<tr><td>theladbible.com</td><td class= success>False</td><td class= danger>False</td><td class= warning>301</td><td class= success>False</td><td class= success>False</td></tr>
+<tr><td>youboy.com</td><td class= success>False</td><td class= danger>False</td><td class= warning>301</td><td class= success>False</td><td class= success>False</td></tr>
+<tr><td>sourceforge.net</td><td class= success>False</td><td class= danger>False</td><td class= success>200</td><td class= success>False</td><td> </td></tr>
+<tr><td>macys.com</td><td class= success>False</td><td class= danger>False</td><td class= warning>301</td><td class= success>False</td><td class= success>False</td></tr>
+<tr><td>att.com</td><td class= success>False</td><td class= danger>False</td><td class= warning>301</td><td class= success>False</td><td class= success>False</td></tr>
+<tr><td>files.wordpress.com</td><td class= success>False</td><td class= danger>False</td><td class= warning>301</td><td class= success>False</td><td class= success>False</td></tr>
+<tr><td>goodreads.com</td><td class= success>False</td><td class= danger>False</td><td class= warning>301</td><td class= success>False</td><td class= success>False</td></tr>
+<tr><td>github.io</td><td class= success>False</td><td class= danger>False</td><td class= warning>301</td><td class= success>False</td><td class= success>False</td></tr>
+<tr><td>lifehacker.com</td><td class= success>False</td><td class= danger>False</td><td class= warning>302</td><td class= success>False</td><td class= success>False</td></tr>
+<tr><td>alibaba.com</td><td class= success>False</td><td class= danger>False</td><td class= warning>302</td><td class= success>False</td><td class= success>False</td></tr>
+<tr><td>aol.com</td><td class= success>False</td><td class= danger>False</td><td class= warning>301</td><td class= success>False</td><td class= success>False</td></tr>
+<tr><td>irs.gov</td><td class= success>False</td><td class= danger>False</td><td class= warning>302</td><td class= success>False</td><td class= success>False</td></tr>
+<tr><td>npr.org</td><td class= success>False</td><td class= danger>False</td><td class= warning>301</td><td class= success>False</td><td class= success>False</td></tr>
+<tr><td>smzdm.com</td><td class= success>False</td><td class= danger>False</td><td class= warning>301</td><td class= success>False</td><td class= success>False</td></tr>
+<tr><td>babytree.com</td><td class= success>False</td><td class= danger>False</td><td class= danger>403</td><td class= success>False</td><td class= success>False</td></tr>
+<tr><td>drseks.com</td><td class= success>False</td><td class= danger>False</td><td class= warning>302</td><td class= success>False</td><td class= success>False</td></tr>
+<tr><td>china.com.cn</td><td class= success>False</td><td class= danger>False</td><td class= warning>302</td><td class= success>False</td><td class= success>False</td></tr>
+<tr><td>sahibinden.com</td><td class= success>False</td><td class= danger>False</td><td class= warning>301</td><td class= success>False</td><td class= success>False</td></tr>
+<tr><td>evernote.com</td><td class= success>False</td><td class= danger>False</td><td class= warning>301</td><td class= success>False</td><td class= success>False</td></tr>
+<tr><td>rakuten.co.jp</td><td class= success>False</td><td class= danger>False</td><td class= warning>301</td><td class= success>False</td><td class= success>False</td></tr>
+<tr><td>tube8.com</td><td class= success>False</td><td class= danger>False</td><td class= warning>301</td><td class= success>False</td><td class= success>False</td></tr>
+<tr><td>amazon.cn</td><td class= success>False</td><td class= danger>False</td><td class= warning>301</td><td class= success>False</td><td class= success>False</td></tr>
+<tr><td>googleadservices.com</td><td class= success>False</td><td class= danger>False</td><td class= warning>302</td><td class= success>False</td><td class= success>False</td></tr>
+<tr><td>tubecup.com</td><td class= success>False</td><td class= danger>False</td><td class= warning>301</td><td class= success>False</td><td class= success>False</td></tr>
+<tr><td>bing.com</td><td class= success>False</td><td class= danger>False</td><td class= warning>301</td><td class= success>False</td><td class= success>False</td></tr>
+<tr><td>tlbb8.com</td><td class= success>False</td><td class= danger>False</td><td class= success>200</td><td class= success>False</td><td class= success>False</td></tr>
+<tr><td>google.com.ng</td><td class= success>False</td><td class= danger>False</td><td class= warning>301</td><td class= success>False</td><td class= success>False</td></tr>
+<tr><td>ci123.com</td><td class= success>False</td><td class= danger>False</td><td class= warning>301</td><td class= success>False</td><td class= success>False</td></tr>
+<tr><td>bhaskar.com</td><td class= success>False</td><td class= danger>False</td><td class= warning>302</td><td class= success>False</td><td class= success>False</td></tr>
+<tr><td>google.be</td><td class= success>False</td><td class= danger>False</td><td class= warning>301</td><td class= success>False</td><td class= success>False</td></tr>
+<tr><td>liputan6.com</td><td class= success>False</td><td class= danger>False</td><td class= warning>301</td><td class= success>False</td><td class= success>False</td></tr>
+<tr><td>pornhub.com</td><td class= success>False</td><td class= danger>False</td><td class= warning>301</td><td class= success>False</td><td class= success>False</td></tr>
+<tr><td>doublepimp.com</td><td class= success>False</td><td class= danger>False</td><td class= warning>302</td><td class= success>False</td><td class= success>False</td></tr>
+<tr><td>ck101.com</td><td class= success>False</td><td class= danger>False</td><td class= success>200</td><td class= success>False</td><td> </td></tr>
+<tr><td>elpais.com</td><td class= success>False</td><td class= danger>False</td><td class= success>200</td><td class= success>False</td><td> </td></tr>
+<tr><td>redtube.com</td><td class= success>False</td><td class= danger>False</td><td class= warning>301</td><td class= success>False</td><td class= success>False</td></tr>
+<tr><td>gmx.net</td><td class= success>False</td><td class= danger>False</td><td class= warning>301</td><td class= success>False</td><td class= success>False</td></tr>
+<tr><td>godaddy.com</td><td class= success>False</td><td class= danger>False</td><td class= warning>301</td><td class= success>False</td><td class= success>False</td></tr>
+<tr><td>ebay.de</td><td class= success>False</td><td class= danger>False</td><td class= warning>301</td><td class= success>False</td><td class= success>False</td></tr>
+<tr><td>google.com.ar</td><td class= success>False</td><td class= danger>False</td><td class= warning>301</td><td class= success>False</td><td class= success>False</td></tr>
+<tr><td>zoho.com</td><td class= success>False</td><td class= danger>False</td><td class= warning>301</td><td class= success>False</td><td class= success>False</td></tr>
+<tr><td>bestbuy.com</td><td class= success>False</td><td class= danger>False</td><td class= warning>301</td><td class= success>False</td><td class= success>False</td></tr>
+<tr><td>google.com</td><td class= success>False</td><td class= danger>False</td><td class= warning>302</td><td class= success>False</td><td class= success>False</td></tr>
+<tr><td>amazon.co.jp</td><td class= success>False</td><td class= danger>False</td><td class= warning>301</td><td class= success>False</td><td class= success>False</td></tr>
+<tr><td>kouclo.com</td><td class= success>False</td><td class= danger>False</td><td class= success>200</td><td class= success>False</td><td> </td></tr>
+<tr><td>youth.cn</td><td class= success>False</td><td class= danger>False</td><td class= warning>301</td><td class= success>False</td><td class= success>False</td></tr>
+<tr><td>bongacams.com</td><td class= success>False</td><td class= danger>False</td><td class= warning>302</td><td class= success>False</td><td class= success>False</td></tr>
+<tr><td>constantcontact.com</td><td class= success>False</td><td class= danger>False</td><td class= warning>301</td><td class= success>False</td><td class= success>False</td></tr>
+<tr><td>17ok.com</td><td class= success>False</td><td class= danger>False</td><td class= success>200</td><td class= success>False</td><td> </td></tr>
+<tr><td>themeforest.net</td><td class= success>False</td><td class= danger>False</td><td class= success>200</td><td class= success>False</td><td> </td></tr>
+<tr><td>verizonwireless.com</td><td class= success>False</td><td class= danger>False</td><td class= warning>301</td><td class= success>False</td><td class= success>False</td></tr>
+<tr><td>google.pt</td><td class= success>False</td><td class= danger>False</td><td class= warning>301</td><td class= success>False</td><td class= success>False</td></tr>
+<tr><td>gmarket.co.kr</td><td class= success>False</td><td class= danger>False</td><td class= success>200</td><td class= success>False</td><td> </td></tr>
+<tr><td>xuite.net</td><td class= success>False</td><td class= danger>False</td><td class= success>200</td><td class= success>False</td><td> </td></tr>
+<tr><td>woot.com</td><td class= success>False</td><td class= danger>False</td><td class= warning>302</td><td class= success>False</td><td class= success>False</td></tr>
+<tr><td>rediff.com</td><td class= success>False</td><td class= danger>False</td><td class= warning>302</td><td class= success>False</td><td class= success>False</td></tr>
+<tr><td>pchome.net</td><td class= success>False</td><td class= danger>False</td><td class= warning>301</td><td class= success>False</td><td class= success>False</td></tr>
+<tr><td>popcash.net</td><td class= success>False</td><td class= danger>False</td><td class= success>200</td><td class= success>False</td><td class= success>False</td></tr>
+<tr><td>yandex.ru</td><td class= success>False</td><td class= danger>False</td><td class= warning>302</td><td class= success>False</td><td class= success>False</td></tr>
+<tr><td>newegg.com</td><td class= success>False</td><td class= danger>False</td><td class= warning>301</td><td class= success>False</td><td class= success>False</td></tr>
+<tr><td>google.pl</td><td class= success>False</td><td class= danger>False</td><td class= warning>301</td><td class= success>False</td><td class= success>False</td></tr>
+<tr><td>espncricinfo.com</td><td class= success>False</td><td class= danger>False</td><td class= warning>302</td><td class= success>False</td><td class= success>False</td></tr>
+<tr><td>huffingtonpost.com</td><td class= success>False</td><td class= danger>False</td><td class= warning>301</td><td class= success>False</td><td class= success>False</td></tr>
+<tr><td>baidu.com</td><td class= success>False</td><td class= danger>False</td><td class= success>200</td><td class= success>False</td><td class= success>False</td></tr>
+<tr><td>steamcommunity.com</td><td class= success>False</td><td class= danger>False</td><td class= success>200</td><td class= success>False</td><td> </td></tr>
+<tr><td>oracle.com</td><td class= success>False</td><td class= danger>False</td><td class= warning>301</td><td class= success>False</td><td class= success>False</td></tr>
+<tr><td>jabong.com</td><td class= success>False</td><td class= danger>False</td><td class= danger>403</td><td class= success>False</td><td class= success>False</td></tr>
+<tr><td>reuters.com</td><td class= success>False</td><td class= danger>False</td><td class= warning>301</td><td class= success>False</td><td class= success>False</td></tr>
+<tr><td>addthis.com</td><td class= success>False</td><td class= danger>False</td><td class= warning>301</td><td class= success>False</td><td class= success>False</td></tr>
+<tr><td>capitalone.com</td><td class= success>False</td><td class= danger>False</td><td class= warning>301</td><td class= success>False</td><td class= success>False</td></tr>
+<tr><td>rutracker.org</td><td class= success>False</td><td class= danger>False</td><td class= success>200</td><td class= success>False</td><td> </td></tr>
+<tr><td>youporn.com</td><td class= success>False</td><td class= danger>False</td><td class= warning>301</td><td class= success>False</td><td class= success>False</td></tr>
+<tr><td>github.com</td><td class= success>False</td><td class= danger>False</td><td class= warning>301</td><td class= success>False</td><td class= success>False</td></tr>
+<tr><td>gameforge.com</td><td class= success>False</td><td class= danger>False</td><td class= warning>301</td><td class= success>False</td><td class= success>False</td></tr>
+<tr><td>caijing.com.cn</td><td class= success>False</td><td class= danger>False</td><td class= warning>302</td><td class= success>False</td><td class= success>False</td></tr>
+<tr><td>salesforce.com</td><td class= success>False</td><td class= danger>False</td><td class= warning>301</td><td class= success>False</td><td class= success>False</td></tr>
+<tr><td>reference.com</td><td class= success>False</td><td class= danger>False</td><td class= warning>301</td><td class= success>False</td><td class= success>False</td></tr>
+<tr><td>gmail.com</td><td class= success>False</td><td class= danger>False</td><td class= warning>301</td><td class= success>False</td><td class= success>False</td></tr>
+<tr><td>vice.com</td><td class= success>False</td><td class= danger>False</td><td class= warning>301</td><td class= success>False</td><td class= success>False</td></tr>
+<tr><td>office.com</td><td class= success>False</td><td class= danger>False</td><td class= warning>302</td><td class= success>False</td><td class= success>False</td></tr>
+<tr><td>imgur.com</td><td class= success>False</td><td class= danger>False</td><td class= success>200</td><td class= success>False</td><td> </td></tr>
+<tr><td>usatoday.com</td><td class= success>False</td><td class= danger>False</td><td class= warning>301</td><td class= success>False</td><td class= success>False</td></tr>
+<tr><td>gmw.cn</td><td class= success>False</td><td class= danger>False</td><td class= success>200</td><td class= success>False</td><td> </td></tr>
+<tr><td>microsoft.com</td><td class= success>False</td><td class= danger>False</td><td class= warning>301</td><td class= success>False</td><td class= success>False</td></tr>
+<tr><td>google.co.jp</td><td class= success>False</td><td class= danger>False</td><td class= warning>301</td><td class= success>False</td><td class= success>False</td></tr>
+<tr><td>uploaded.net</td><td class= success>False</td><td class= danger>False</td><td class= success>200</td><td class= success>False</td><td class= success>False</td></tr>
+<tr><td>icicibank.com</td><td class= success>False</td><td class= danger>False</td><td class= success>200</td><td class= success>False</td><td class= success>False</td></tr>
+<tr><td>target.com</td><td class= success>False</td><td class= danger>False</td><td class= warning>301</td><td class= success>False</td><td class= success>False</td></tr>
+<tr><td>ilividnewtab.com</td><td class= success>False</td><td class= danger>False</td><td class= success>200</td><td class= success>False</td><td class= success>False</td></tr>
+<tr><td>buzzfeed.com</td><td class= success>False</td><td class= danger>False</td><td class= warning>301</td><td class= success>False</td><td class= success>False</td></tr>
+<tr><td>taboola.com</td><td class= success>False</td><td class= danger>False</td><td class= success>200</td><td class= success>False</td><td> </td></tr>
+<tr><td>ikea.com</td><td class= success>False</td><td class= danger>False</td><td class= warning>301</td><td class= success>False</td><td class= success>False</td></tr>
+<tr><td>tistory.com</td><td class= success>False</td><td class= danger>False</td><td class= warning>302</td><td class= success>False</td><td class= success>False</td></tr>
+<tr><td>abril.com.br</td><td class= success>False</td><td class= danger>False</td><td class= warning>301</td><td class= success>False</td><td class= success>False</td></tr>
+<tr><td>chinatimes.com</td><td class= success>False</td><td class= danger>False</td><td class= warning>302</td><td class= success>False</td><td> </td></tr>
+<tr><td>tmz.com</td><td class= success>False</td><td class= danger>False</td><td class= warning>301</td><td class= success>False</td><td class= success>False</td></tr>
+<tr><td>google.com.br</td><td class= success>False</td><td class= danger>False</td><td class= warning>301</td><td class= success>False</td><td class= success>False</td></tr>
+<tr><td>reddit.com</td><td class= success>False</td><td class= danger>False</td><td class= warning>302</td><td class= success>False</td><td class= success>False</td></tr>
+<tr><td>google.fi</td><td class= success>False</td><td class= danger>False</td><td class= warning>301</td><td class= success>False</td><td class= success>False</td></tr>
+<tr><td>wikihow.com</td><td class= success>False</td><td class= danger>False</td><td class= warning>301</td><td class= success>False</td><td class= success>False</td></tr>
+<tr><td>google.com.bd</td><td class= success>False</td><td class= danger>False</td><td class= warning>301</td><td class= success>False</td><td class= success>False</td></tr>
+<tr><td>citibank.com</td><td class= success>False</td><td class= danger>False</td><td class= warning>301</td><td class= success>False</td><td class= success>False</td></tr>
+<tr><td>dailymotion.com</td><td class= success>False</td><td class= danger>False</td><td class= warning>301</td><td class= success>False</td><td class= success>False</td></tr>
+<tr><td>dell.com</td><td class= success>False</td><td class= danger>False</td><td class= warning>302</td><td class= success>False</td><td class= success>False</td></tr>
+<tr><td>pconline.com.cn</td><td class= success>False</td><td class= danger>False</td><td class= warning>301</td><td class= success>False</td><td class= success>False</td></tr>
+<tr><td>slack.com</td><td class= success>False</td><td class= danger>False</td><td class= warning>302</td><td class= success>False</td><td class= success>False</td></tr>
+<tr><td>ups.com</td><td class= success>False</td><td class= danger>False</td><td class= warning>301</td><td class= success>False</td><td class= success>False</td></tr>
+<tr><td>twitch.tv</td><td class= success>False</td><td class= danger>False</td><td class= warning>302</td><td class= success>False</td><td class= success>False</td></tr>
+<tr><td>google.com.eg</td><td class= success>False</td><td class= danger>False</td><td class= warning>301</td><td class= success>False</td><td class= success>False</td></tr>
+<tr><td>espn.go.com</td><td class= success>False</td><td class= danger>False</td><td class= success>200</td><td class= success>False</td><td class= success>False</td></tr>
+<tr><td>softonic.com</td><td class= success>False</td><td class= danger>False</td><td class= warning>301</td><td class= success>False</td><td class= success>False</td></tr>
+<tr><td>paytm.com</td><td class= success>False</td><td class= danger>False</td><td class= warning>301</td><td class= success>False</td><td class= success>False</td></tr>
+<tr><td>amazon.it</td><td class= success>False</td><td class= danger>False</td><td class= warning>301</td><td class= success>False</td><td class= success>False</td></tr>
+<tr><td>sex.com</td><td class= success>False</td><td class= danger>False</td><td class= warning>301</td><td class= success>False</td><td class= success>False</td></tr>
+<tr><td>bbc.co.uk</td><td class= success>False</td><td class= danger>False</td><td class= warning>301</td><td class= success>False</td><td class= success>False</td></tr>
+<tr><td>intuit.com</td><td class= success>False</td><td class= danger>False</td><td class= warning>301</td><td class= success>False</td><td class= success>False</td></tr>
+<tr><td>tumblr.com</td><td class= success>False</td><td class= danger>False</td><td class= warning>301</td><td class= success>False</td><td class= success>False</td></tr>
+<tr><td>warmportrait.com</td><td> </td><td class= danger>False</td><td> </td><td class= success>False</td><td> </td></tr>
+<tr><td>force.com</td><td class= success>False</td><td class= danger>False</td><td class= warning>302</td><td class= success>False</td><td class= success>False</td></tr>
+<tr><td>life.com.tw</td><td class= success>False</td><td class= danger>False</td><td class= warning>302</td><td class= success>False</td><td class= success>False</td></tr>
+<tr><td>wix.com</td><td class= success>False</td><td class= danger>False</td><td class= warning>301</td><td class= success>False</td><td class= success>False</td></tr>
+<tr><td>google.co.uk</td><td class= success>False</td><td class= danger>False</td><td class= warning>301</td><td class= success>False</td><td class= success>False</td></tr>
+<tr><td>yandex.ua</td><td class= success>False</td><td class= danger>False</td><td class= warning>302</td><td class= success>False</td><td class= success>False</td></tr>
+<tr><td>indeed.com</td><td class= success>False</td><td class= danger>False</td><td class= warning>301</td><td class= success>False</td><td class= success>False</td></tr>
+<tr><td>amazon.in</td><td class= success>False</td><td class= danger>False</td><td class= warning>301</td><td class= success>False</td><td class= success>False</td></tr>
+<tr><td>wikimedia.org</td><td class= success>False</td><td class= danger>False</td><td class= warning>301</td><td class= success>False</td><td class= success>False</td></tr>
+<tr><td>foxnews.com</td><td class= success>False</td><td class= danger>False</td><td class= warning>301</td><td class= success>False</td><td class= success>False</td></tr>
+<tr><td>hupu.com</td><td class= success>False</td><td class= danger>False</td><td class= warning>301</td><td class= success>False</td><td class= success>False</td></tr>
+<tr><td>ebay.com</td><td class= success>False</td><td class= danger>False</td><td class= warning>301</td><td class= success>False</td><td class= success>False</td></tr>
+<tr><td>live.com</td><td class= success>False</td><td class= danger>False</td><td class= warning>301</td><td class= success>False</td><td class= success>False</td></tr>
+<tr><td>blogspot.in</td><td class= success>False</td><td class= danger>False</td><td class= warning>302</td><td class= success>False</td><td class= success>False</td></tr>
+<tr><td>blog.jp</td><td class= success>False</td><td class= danger>False</td><td class= success>200</td><td class= success>False</td><td> </td></tr>
+<tr><td>weather.com</td><td class= success>False</td><td class= danger>False</td><td class= warning>301</td><td class= success>False</td><td class= success>False</td></tr>
+<tr><td>mail.ru</td><td class= success>False</td><td class= danger>False</td><td class= warning>302</td><td class= success>False</td><td class= success>False</td></tr>
+<tr><td>wow.com</td><td class= success>False</td><td class= danger>False</td><td class= warning>301</td><td class= success>False</td><td class= success>False</td></tr>
+<tr><td>google.co.il</td><td class= success>False</td><td class= danger>False</td><td class= warning>301</td><td class= success>False</td><td class= success>False</td></tr>
+<tr><td>google.co.in</td><td class= success>False</td><td class= danger>False</td><td class= warning>301</td><td class= success>False</td><td class= success>False</td></tr>
+<tr><td>thepiratebay.se</td><td class= success>False</td><td class= danger>False</td><td class= warning>301</td><td class= success>False</td><td class= success>False</td></tr>
+<tr><td>ettoday.net</td><td class= success>False</td><td class= danger>False</td><td class= warning>301</td><td class= success>False</td><td class= success>False</td></tr>
+<tr><td>google.co.id</td><td class= success>False</td><td class= danger>False</td><td class= warning>301</td><td class= success>False</td><td class= success>False</td></tr>
+<tr><td>java.com</td><td class= success>False</td><td class= danger>False</td><td class= warning>302</td><td class= success>False</td><td class= success>False</td></tr>
+<tr><td>douban.com</td><td class= success>False</td><td class= danger>False</td><td class= warning>301</td><td class= success>False</td><td class= success>False</td></tr>
+<tr><td>yahoo.com</td><td class= success>False</td><td class= danger>False</td><td class= warning>301</td><td class= success>False</td><td class= success>False</td></tr>
+<tr><td>wordpress.org</td><td class= success>False</td><td class= danger>False</td><td class= warning>301</td><td class= success>False</td><td class= success>False</td></tr>
+<tr><td>twitter.com</td><td class= success>False</td><td class= danger>False</td><td class= warning>301</td><td class= success>False</td><td class= success>False</td></tr>
+<tr><td>washingtonpost.com</td><td class= success>False</td><td class= danger>False</td><td class= warning>301</td><td class= success>False</td><td class= success>False</td></tr>
+<tr><td>speedtest.net</td><td class= success>False</td><td class= danger>False</td><td class= warning>301</td><td class= success>False</td><td class= success>False</td></tr>
+<tr><td>steampowered.com</td><td class= success>False</td><td class= danger>False</td><td class= warning>301</td><td class= success>False</td><td> </td></tr>
+<tr><td>chase.com</td><td class= success>False</td><td class= danger>False</td><td class= warning>301</td><td class= success>False</td><td class= success>False</td></tr>
+<tr><td>techcrunch.com</td><td class= success>False</td><td class= danger>False</td><td class= success>200</td><td class= success>False</td><td> </td></tr>
+<tr><td>ink361.com</td><td class= success>False</td><td class= danger>False</td><td class= danger>403</td><td class= success>False</td><td class= success>False</td></tr>
+<tr><td>battle.net</td><td class= success>False</td><td class= danger>False</td><td class= warning>302</td><td class= success>False</td><td class= success>False</td></tr>
+<tr><td>seznam.cz</td><td class= success>False</td><td class= danger>False</td><td class= warning>302</td><td class= success>False</td><td class= success>False</td></tr>
+<tr><td>zol.com.cn</td><td class= success>False</td><td class= danger>False</td><td class= warning>301</td><td class= success>False</td><td class= success>False</td></tr>
+<tr><td>kaskus.co.id</td><td class= success>False</td><td class= danger>False</td><td class= warning>302</td><td class= success>False</td><td class= success>False</td></tr>
+<tr><td>avg.com</td><td class= success>False</td><td class= danger>False</td><td class= warning>301</td><td class= success>False</td><td class= success>False</td></tr>
+<tr><td>apple.com</td><td class= success>False</td><td class= danger>False</td><td class= warning>301</td><td class= success>False</td><td class= success>False</td></tr>
+<tr><td>9gag.com</td><td class= success>False</td><td class= danger>False</td><td class= success>200</td><td class= success>False</td><td> </td></tr>
+<tr><td>nicovideo.jp</td><td class= success>False</td><td class= danger>False</td><td class= warning>301</td><td class= success>False</td><td class= success>False</td></tr>
+<tr><td>lazada.co.id</td><td class= success>False</td><td class= danger>False</td><td class= warning>301</td><td class= success>False</td><td class= success>False</td></tr>
+<tr><td>telegraph.co.uk</td><td class= success>False</td><td class= danger>False</td><td class= warning>301</td><td class= success>False</td><td class= success>False</td></tr>
+<tr><td>sohu.com</td><td class= success>False</td><td class= danger>False</td><td class= warning>302</td><td class= success>False</td><td class= success>False</td></tr>
+<tr><td>mystart.com</td><td class= success>False</td><td class= danger>False</td><td class= success>200</td><td class= success>False</td><td class= success>False</td></tr>
+<tr><td>stackoverflow.com</td><td class= success>False</td><td class= danger>False</td><td class= success>200</td><td class= success>False</td><td> </td></tr>
+<tr><td>snapdeal.com</td><td class= success>False</td><td class= danger>False</td><td class= warning>301</td><td class= success>False</td><td class= success>False</td></tr>
+<tr><td>it168.com</td><td class= success>False</td><td class= danger>False</td><td class= warning>301</td><td class= success>False</td><td class= success>False</td></tr>
+<tr><td>stamplive.com</td><td class= success>False</td><td class= danger>False</td><td class= success>200</td><td class= success>False</td><td class= success>False</td></tr>
+<tr><td>amazon.ca</td><td class= success>False</td><td class= danger>False</td><td class= warning>301</td><td class= success>False</td><td class= success>False</td></tr>
+<tr><td>jqw.com</td><td class= success>False</td><td class= danger>False</td><td class= success>200</td><td class= success>False</td><td> </td></tr>
+<tr><td>php.net</td><td class= success>False</td><td class= danger>False</td><td class= success>200</td><td class= success>False</td><td class= success>False</td></tr>
+<tr><td>weibo.com</td><td class= success>False</td><td class= danger>False</td><td class= warning>302</td><td class= success>False</td><td class= success>False</td></tr>
+<tr><td>fedex.com</td><td class= success>False</td><td class= danger>False</td><td class= warning>301</td><td class= success>False</td><td class= success>False</td></tr>
+<tr><td>chinadaily.com.cn</td><td class= success>False</td><td class= danger>False</td><td class= warning>301</td><td class= success>False</td><td class= success>False</td></tr>
+<tr><td>hurriyet.com.tr</td><td class= success>False</td><td class= danger>False</td><td class= warning>301</td><td class= success>False</td><td class= success>False</td></tr>
+<tr><td>facebook.com</td><td class= success>False</td><td class= danger>False</td><td class= warning>302</td><td class= success>False</td><td class= success>False</td></tr>
+<tr><td>ask.fm</td><td class= success>False</td><td class= danger>False</td><td class= success>200</td><td class= success>False</td><td> </td></tr>
+<tr><td>theverge.com</td><td class= success>False</td><td class= danger>False</td><td class= warning>301</td><td class= success>False</td><td class= success>False</td></tr>
+<tr><td>uol.com.br</td><td class= success>False</td><td class= danger>False</td><td class= warning>302</td><td class= success>False</td><td class= success>False</td></tr>
+<tr><td>mercadolivre.com.br</td><td class= success>False</td><td class= danger>False</td><td class= warning>301</td><td class= success>False</td><td class= success>False</td></tr>
+<tr><td>google.sk</td><td class= success>False</td><td class= danger>False</td><td class= warning>301</td><td class= success>False</td><td class= success>False</td></tr>
+<tr><td>google.se</td><td class= success>False</td><td class= danger>False</td><td class= warning>301</td><td class= success>False</td><td class= success>False</td></tr>
+<tr><td>google.com.pe</td><td class= success>False</td><td class= danger>False</td><td class= warning>301</td><td class= success>False</td><td class= success>False</td></tr>
+<tr><td>google.com.pk</td><td class= success>False</td><td class= danger>False</td><td class= warning>301</td><td class= success>False</td><td class= success>False</td></tr>
+<tr><td>varzesh3.com</td><td class= success>False</td><td class= danger>False</td><td class= warning>302</td><td class= success>False</td><td class= success>False</td></tr>
+<tr><td>akamaihd.net</td><td> </td><td class= danger>False</td><td> </td><td class= success>False</td><td> </td></tr>
+<tr><td>cricbuzz.com</td><td class= success>False</td><td class= danger>False</td><td class= warning>302</td><td class= success>False</td><td class= success>False</td></tr>
+<tr><td>twimg.com</td><td> </td><td class= danger>False</td><td> </td><td class= success>False</td><td> </td></tr>
+<tr><td>zhihu.com</td><td class= success>False</td><td class= danger>False</td><td class= warning>301</td><td class= success>False</td><td class= success>False</td></tr>
+<tr><td>corriere.it</td><td class= success>False</td><td class= danger>False</td><td class= warning>301</td><td class= success>False</td><td class= success>False</td></tr>
+<tr><td>sogou.com</td><td class= success>False</td><td class= danger>False</td><td class= warning>301</td><td class= success>False</td><td class= success>False</td></tr></table>
+</div>
+</div>
+</body>
+</html>
