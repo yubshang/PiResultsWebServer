@@ -17,6 +17,7 @@ config.readfp(open(os.path.join(module_directory, "config.txt")))
 cache_directory = config.get("Options", "cache_directory")
 result_directory = config.get("Options", "result_directory")  # Results directory is configurable
 should_cache = config.getboolean("Options", "cache_html")  # True if should cache
+cache_limit = config.getint("Options", "cache_limit")  # Will start deleting caches after the limit has been reached
 
 # Ensure the path to the static folder is correct
 app = Flask(__name__, static_folder=os.path.join(module_directory, "static"))
@@ -154,6 +155,7 @@ th, td {
 </html>"""
         if should_cache:
             cache.cache_html(absolute_file_path, cache_directory, html_string)  # Cache HTML
+            cache.check_cache(cache_directory, cache_limit)  # Check cache limit
     return html_string
 
 

@@ -1,4 +1,5 @@
 [Options]
 cache_html=true
 cache_directory=./html_cache
+cache_limit=50
 result_directory=./results
