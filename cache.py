@@ -28,6 +28,12 @@ def hashfileMD5(file_path, blocksize=65536):
     return hasher.digest()
 
 
+def is_in_cache(result_file_path, cache_directory):
+    base64_hash = base64.b32encode(hashfileMD5(result_file_path))
+    cache_file_name = base64_hash + ".cache"
+    return cache_file_name in os.listdir(cache_directory)
+
+
 def get_html_from_cache(file_path, cache_directory):
     base64_hash = base64.b32encode(hashfileMD5(file_path))  # Use 32 bit encoding to ensure a valid filename
     cache_file_name = base64_hash + ".cache"

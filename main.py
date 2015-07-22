@@ -184,6 +184,7 @@ def display_select_result_html():
     <th>Size</th>
     <th>Date Modified</th>
     <th>Date Created</th>
+    <th>Cached</th>
   </tr>
    """
     for result_file in os.listdir(result_directory):
@@ -193,6 +194,7 @@ def display_select_result_html():
         html_string += "<td>" + str(os.path.getsize(absolute_result_file_path) / float(1000)) + "kb </td>"
         html_string += "<td>" + time.ctime(os.path.getmtime(absolute_result_file_path)) + "</td>"
         html_string += "<td>" + time.ctime(os.path.getctime(absolute_result_file_path)) + "</td>"
+        html_string += "<td>" + str(cache.is_in_cache(absolute_result_file_path, cache_directory))
         html_string += "</tr>\n"
     html_string += """
     </table>
