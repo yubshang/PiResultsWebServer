@@ -19,6 +19,8 @@ result_directory = config.get("Options", "result_directory")  # Results director
 should_cache = config.getboolean("Options", "cache_html")  # True if should cache
 cache_limit = config.getint("Options", "cache_limit")  # Will start deleting caches after the limit has been reached
 
+if not os.path.isdir(cache_directory):
+    os.mkdir(cache_directory)
 # Ensure the path to the static folder is correct
 app = Flask(__name__, static_folder=os.path.join(module_directory, "static"))
 
