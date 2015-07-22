@@ -125,13 +125,11 @@ th, td {
     <th class="col-sm-2">Block Page</th>
   </tr>"""
         blank_result = '<td> </td>'
-        print("HI")
         for result in data:
             html_string += "\n<tr>"
             html_string += '<td>' + result["url"] + '</td>'
 
             if "sequence number anomaly" in result:
-                print(result["sequence number anomaly"])
                 seq_anom = str(result["sequence number anomaly"])
                 html_string += '<td class= ' + bool_str_to_color(seq_anom, True) + '>' + seq_anom + '</td>'
             else:
