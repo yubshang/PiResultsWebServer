@@ -194,7 +194,11 @@ def display_select_result_html():
         html_string += "<td>" + str(os.path.getsize(absolute_result_file_path) / float(1000)) + "kb </td>"
         html_string += "<td>" + time.ctime(os.path.getmtime(absolute_result_file_path)) + "</td>"
         html_string += "<td>" + time.ctime(os.path.getctime(absolute_result_file_path)) + "</td>"
-        html_string += "<td>" + str(cache.is_in_cache(absolute_result_file_path, cache_directory))
+        cached = cache.is_in_cache(absolute_result_file_path, cache_directory)
+        if cached:
+            html_string += '<td><img src="static/checkmark.png" alt="Mountain View" style="width:15px;height:15px;">'
+        else:
+            html_string += '<td><img src="static/x.png" alt="Mountain View" style="width:15px;height:15px;">'
         html_string += "</tr>\n"
     html_string += """
     </table>
