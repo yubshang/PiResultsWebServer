@@ -196,9 +196,9 @@ def display_select_result_html():
         html_string += "<td>" + time.ctime(os.path.getctime(absolute_result_file_path)) + "</td>"
         cached = cache.is_in_cache(absolute_result_file_path, cache_directory)
         if cached:
-            html_string += '<td><img src="static/checkmark.png" alt="Mountain View" style="width:15px;height:15px;">'
+            html_string += '<td><img src="static/checkmark.png" style="width:15px;height:15px;">'
         else:
-            html_string += '<td><img src="static/x.png" alt="Mountain View" style="width:15px;height:15px;">'
+            html_string += '<td><img src="static/x.png" style="width:15px;height:15px;">'
         html_string += "</tr>\n"
     html_string += """
     </table>
