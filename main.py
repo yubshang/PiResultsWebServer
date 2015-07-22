@@ -25,10 +25,6 @@ if not os.path.isdir(cache_directory):
 app = Flask(__name__, static_folder=os.path.join(module_directory, "static"))
 
 
-def yes_no_to_boolean_str(yn):
-    return str(yn == "Y")
-
-
 def bool_str_to_color(bool_str, inverse=False):
     """
     Converts boolean to respective color. Can be inverted if inverse is True
@@ -36,13 +32,17 @@ def bool_str_to_color(bool_str, inverse=False):
     if inverse is True:
         if bool_str == "True":
             return "danger"
-        else:
+        elif bool_str == "False":
             return "success"
+        else:
+            return ""
     else:
         if bool_str == "True":
             return "success"
-        else:
+        elif bool_str == "False":
             return "danger"
+        else:
+            return ""
 
 
 def http_to_color(code):
@@ -113,39 +113,49 @@ th, td {
 <body>
 
 <div class="row">
-<div class="col-md-6">
+<div class="col-md-7">
 <table class="sortable table table-bordered">
   <tr>
-    <th class="col-sm-2">Result id</th>
+    <th class="col-sm-2">Url</th>
     <th class="col-sm-2">Sequence Number Anomaly</th>
+    <th class="col-sm-2">TTL Anomaly</th>
     <th class="col-sm-2">UDP Traceroute Succeed</th>
     <th class="col-sm-2">HTTP GET Status</th>
     <th class="col-sm-2">DNS Tampering</th>
     <th class="col-sm-2">Block Page</th>
   </tr>"""
         blank_result = '<td> </td>'
+        print("HI")
         for result in data:
             html_string += "\n<tr>"
-            html_string += '<td>' + result["result id"] + '</td>'
+            html_string += '<td>' + result["url"] + '</td>'
+
             if "sequence number anomaly" in result:
-                seq_anom = yes_no_to_boolean_str(result["sequence number anomaly"])
+                print(result["sequence number anomaly"])
+                seq_anom = str(result["sequence number anomaly"])
                 html_string += '<td class= ' + bool_str_to_color(seq_anom, True) + '>' + seq_anom + '</td>'
             else:
                 html_string += blank_result
+            if "ttl anomaly" in result:
+                ttl_anom = str(result["ttl anomaly"])
+                html_string += '<td class= ' + bool_str_to_color(ttl_anom, True) + '>' + ttl_anom + '</td>'
+            else:
+                html_string += blank_result
             if "UDP traceroute succeed" in result:
-                udp_success = yes_no_to_boolean_str(result["UDP traceroute succeed"])
+                udp_success = str(result["UDP traceroute succeed"])
                 html_string += '<td class= ' + bool_str_to_color(udp_success) + '>' + udp_success + '</td>'
             else:
                 html_string += blank_result
-            if "HTTP GET status" in result:
-                http_code = result["HTTP GET status"]
+            if "status" in result:
+                http_code = result["status"]
                 html_string += '<td class= ' + http_to_color(str(http_code)) + '>' + str(http_code) + '</td>'
             else:
                 html_string += blank_result
-            dns_tampering = yes_no_to_boolean_str(result["DNS tampering"])
-            html_string += '<td class= ' + bool_str_to_color(dns_tampering, True) + '>' + dns_tampering + '</td>'
+            if "dns tampering" in result:
+                dns_tampering = str(result["dns tampering"])
+                html_string += '<td class= ' + bool_str_to_color(dns_tampering, True) + '>' + dns_tampering + '</td>'
             if "block page" in result:
-                blockpage = yes_no_to_boolean_str(result["block page"])
+                blockpage = str(result["block page"])
                 html_string += '<td class= ' + bool_str_to_color(blockpage, True) + '>' + blockpage + '</td>'
             else:
                 html_string += blank_result

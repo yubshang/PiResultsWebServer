@@ -1,0 +1,63 @@
+[
+  {
+    "status": 200,
+    "ttl anomaly": "N/A",
+    "url": "yahoo.com",
+    "sequence number anomaly": "N/A",
+    "sequence number anomaly comment": "This is a SSL connection.",
+    "dns tampering": false,
+    "block page": false,
+    "ttl anomaly comment": "This is a SSL connection."
+  },
+  {
+    "status": 200,
+    "ttl anomaly": false,
+    "url": "reddit.com",
+    "sequence number anomaly": false,
+    "dns tampering": false,
+    "block page": false
+  },
+  {
+    "status": 200,
+    "ttl anomaly": false,
+    "url": "google.com",
+    "sequence number anomaly": false,
+    "dns tampering": false,
+    "block page": false
+  },
+  {
+    "status": 200,
+    "ttl anomaly": false,
+    "url": "weather.com",
+    "sequence number anomaly": false,
+    "dns tampering": false,
+    "block page": false
+  },
+  {
+    "status": "N/A",
+    "ttl anomaly": "N/A",
+    "url": "ThisWillFail",
+    "sequence number anomaly": "N/A",
+    "dns tampering": "N/A",
+    "block page": "N/A"
+  },
+  {
+    "status": 200,
+    "ttl anomaly": "N/A",
+    "url": "facebook.com",
+    "sequence number anomaly": "N/A",
+    "sequence number anomaly comment": "This is a SSL connection.",
+    "dns tampering": false,
+    "block page": false,
+    "ttl anomaly comment": "This is a SSL connection."
+  },
+  {
+    "status": 200,
+    "ttl anomaly": true,
+    "url": "ebay.com",
+    "sequence number anomaly": false,
+    "dns tampering": false,
+    "block page": false,
+    "ttl anomaly comment": "SYN-ACK: IPID = 50681, TTL = 240; Anomaly: IPID = 36915, TTL = 38"
+  }
+]
