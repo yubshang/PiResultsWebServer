@@ -35,14 +35,14 @@ def bool_str_to_color(bool_str, inverse=False):
         elif bool_str == "False":
             return "success"
         else:
-            return ""
+            return '""'
     else:
         if bool_str == "True":
             return "success"
         elif bool_str == "False":
             return "danger"
         else:
-            return ""
+            return '""'
 
 
 def http_to_color(code):
@@ -56,7 +56,7 @@ def http_to_color(code):
     elif str.startswith(code, "4"):  # Failure
         return 'danger'
     else:
-        return ''
+        return '""'
 
 
 @app.route("/results/<result>")
@@ -127,34 +127,55 @@ th, td {
         blank_result = '<td> </td>'
         for result in data:
             html_string += "\n<tr>"
-            html_string += '<td>' + result["url"] + '</td>'
+            url_comment = ""
+            if "url comment" in result:
+                url_comment = result["url comment"]
+            html_string += '<td title=' + '"' + url_comment + '"' + '>' + result["url"] + '</td>'
 
             if "sequence number anomaly" in result:
                 seq_anom = str(result["sequence number anomaly"])
-                html_string += '<td class= ' + bool_str_to_color(seq_anom, True) + '>' + seq_anom + '</td>'
+                seq_comment = ""
+                if "sequence number anomaly comment" in result:
+                    seq_comment = result["sequence number anomaly comment"]
+                html_string += '<td class=' + bool_str_to_color(seq_anom, True) + ' title=' + '"' + seq_comment + '"' + '>' + seq_anom + '</td>'
             else:
                 html_string += blank_result
             if "ttl anomaly" in result:
                 ttl_anom = str(result["ttl anomaly"])
-                html_string += '<td class= ' + bool_str_to_color(ttl_anom, True) + '>' + ttl_anom + '</td>'
+                ttl_comment = ""
+                if "ttl anomaly comment" in result:
+                    ttl_comment = result["ttl anomaly comment"]
+                html_string += '<td class=' + bool_str_to_color(ttl_anom, True) + ' title=' + '"' + ttl_comment + '"' + '>' + ttl_anom + '</td>'
             else:
                 html_string += blank_result
             if "UDP traceroute succeed" in result:
                 udp_success = str(result["UDP traceroute succeed"])
-                html_string += '<td class= ' + bool_str_to_color(udp_success) + '>' + udp_success + '</td>'
+                udp_comment = ""
+                if "UDP traceroute succeed comment" in result:
+                    udp_comment = result["UDP traceroute succeed comment"]
+                html_string += '<td class=' + bool_str_to_color(udp_success) + ' title=' + '"' + udp_comment + '"' + '>' + udp_success + '</td>'
             else:
                 html_string += blank_result
             if "status" in result:
                 http_code = result["status"]
-                html_string += '<td class= ' + http_to_color(str(http_code)) + '>' + str(http_code) + '</td>'
+                http_comment = ""
+                if "status comment" in result:
+                    http_comment = result["status comment"]
+                html_string += '<td class=' + http_to_color(str(http_code)) + ' title=' + '"' + http_comment + '"' + '>' + str(http_code) + '</td>'
             else:
                 html_string += blank_result
             if "dns tampering" in result:
                 dns_tampering = str(result["dns tampering"])
-                html_string += '<td class= ' + bool_str_to_color(dns_tampering, True) + '>' + dns_tampering + '</td>'
+                dns_comment = ""
+                if "dns tampering comment" in result:
+                    dns_comment = result["dns tampering comment"]
+                html_string += '<td class=' + bool_str_to_color(dns_tampering, True) + ' title=' + '"' + dns_comment + '"' + '>' + dns_tampering + '</td>'
             if "block page" in result:
                 blockpage = str(result["block page"])
-                html_string += '<td class= ' + bool_str_to_color(blockpage, True) + '>' + blockpage + '</td>'
+                blockpage_comment = ""
+                if "block page comment" in result:
+                    blockpage_comment = result["block page comment"]
+                html_string += '<td class=' + bool_str_to_color(blockpage, True) + ' title=' + '"' + blockpage_comment + '"' + '>' + blockpage + '</td>'
             else:
                 html_string += blank_result
             html_string += '</tr>'
@@ -216,4 +237,4 @@ def display_select_result_html():
     return html_string
 
 if __name__ == "__main__":
-    app.run(host="0.0.0.0")
+    app.run(host="0.0.0.0", debug=True)
