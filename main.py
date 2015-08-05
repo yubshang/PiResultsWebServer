@@ -35,14 +35,14 @@ def bool_str_to_color(bool_str, inverse=False):
         elif bool_str == "False":
             return "success"
         else:
-            return '""'
+            return "default"
     else:
         if bool_str == "True":
             return "success"
         elif bool_str == "False":
             return "danger"
         else:
-            return '""'
+            return "default"
 
 
 def http_to_color(code):
@@ -56,7 +56,7 @@ def http_to_color(code):
     elif str.startswith(code, "4"):  # Failure
         return 'danger'
     else:
-        return '""'
+        return 'default'
 
 
 @app.route("/results/<result>")
@@ -104,25 +104,77 @@ th, td {
 .table th, .table td{
     text-align: center;
 }
+
+.note_danger {
+    position: relative;
+}
+.note_danger:after {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 0;
+    height: 0;
+    display: block;
+    border-left: 15px solid transparent;
+    border-bottom: 15px solid transparent;
+    border-top: 15px solid #f00;
+}
+.note_success {
+    position: relative;
+}
+.note_success:after {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 0;
+    height: 0;
+    display: block;
+    border-left: 15px solid transparent;
+    border-bottom: 15px solid transparent;
+    border-top: 15px solid #006400;
+}
+.note_default {
+    position: relative;
+}
+.note_default:after {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 0;
+    height: 0;
+    display: block;
+    border-left: 15px solid transparent;
+    border-bottom: 15px solid transparent;
+    border-top: 15px solid #c0c0c0;
+}
 </style>
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
 <script src="/static/sortable.js"></script>
+<script>
+$(function () {
+    $("[data-toggle='popover']").popover();
+});
+</script>
 </head>
 <body>
 
 <div class="row">
-<div class="col-md-7">
+<div class="col-md-9">
 <table class="sortable table table-bordered">
   <tr>
     <th class="col-sm-2">Url</th>
+    <th class="col-sm-2">HTTP GET Status</th>
+    <th class="col-sm-2">Block Page</th>
+    <th class="col-sm-2">DNS Tampering</th>
     <th class="col-sm-2">Sequence Number Anomaly</th>
     <th class="col-sm-2">TTL Anomaly</th>
-    <th class="col-sm-2">UDP Traceroute Succeed</th>
-    <th class="col-sm-2">HTTP GET Status</th>
-    <th class="col-sm-2">DNS Tampering</th>
-    <th class="col-sm-2">Block Page</th>
+<!--    <th class="col-sm-2">UDP Traceroute Succeed</th> -->
   </tr>"""
         blank_result = '<td> </td>'
         for result in data:
@@ -131,31 +183,6 @@ th, td {
             if "url comment" in result:
                 url_comment = result["url comment"]
             html_string += '<td title=' + '"' + url_comment + '"' + '>' + result["url"] + '</td>'
-
-            if "sequence number anomaly" in result:
-                seq_anom = str(result["sequence number anomaly"])
-                seq_comment = ""
-                if "sequence number anomaly comment" in result:
-                    seq_comment = result["sequence number anomaly comment"]
-                html_string += '<td class=' + bool_str_to_color(seq_anom, True) + ' title=' + '"' + seq_comment + '"' + '>' + seq_anom + '</td>'
-            else:
-                html_string += blank_result
-            if "ttl anomaly" in result:
-                ttl_anom = str(result["ttl anomaly"])
-                ttl_comment = ""
-                if "ttl anomaly comment" in result:
-                    ttl_comment = result["ttl anomaly comment"]
-                html_string += '<td class=' + bool_str_to_color(ttl_anom, True) + ' title=' + '"' + ttl_comment + '"' + '>' + ttl_anom + '</td>'
-            else:
-                html_string += blank_result
-            if "UDP traceroute succeed" in result:
-                udp_success = str(result["UDP traceroute succeed"])
-                udp_comment = ""
-                if "UDP traceroute succeed comment" in result:
-                    udp_comment = result["UDP traceroute succeed comment"]
-                html_string += '<td class=' + bool_str_to_color(udp_success) + ' title=' + '"' + udp_comment + '"' + '>' + udp_success + '</td>'
-            else:
-                html_string += blank_result
             if "status" in result:
                 http_code = result["status"]
                 http_comment = ""
@@ -164,20 +191,81 @@ th, td {
                 html_string += '<td class=' + http_to_color(str(http_code)) + ' title=' + '"' + http_comment + '"' + '>' + str(http_code) + '</td>'
             else:
                 html_string += blank_result
-            if "dns tampering" in result:
-                dns_tampering = str(result["dns tampering"])
-                dns_comment = ""
-                if "dns tampering comment" in result:
-                    dns_comment = result["dns tampering comment"]
-                html_string += '<td class=' + bool_str_to_color(dns_tampering, True) + ' title=' + '"' + dns_comment + '"' + '>' + dns_tampering + '</td>'
             if "block page" in result:
                 blockpage = str(result["block page"])
                 blockpage_comment = ""
-                if "block page comment" in result:
-                    blockpage_comment = result["block page comment"]
-                html_string += '<td class=' + bool_str_to_color(blockpage, True) + ' title=' + '"' + blockpage_comment + '"' + '>' + blockpage + '</td>'
+                if "extra" in result and "block page comment" in result["extra"]:
+                    blockpage_comment = result["extra"]["block page comment"]
+                if blockpage_comment:
+                    style = bool_str_to_color(blockpage, True)
+                    style += (" note_" + style)
+                    title = "DNS tampering on <em>" + result['url'] + "</em>:"
+                    html_string += ("<td class=\"" +  style + "\" " + "title=\"" + title + "\" " +
+                                    "data-container=\"body\" data-toggle=\"popover\" " +
+                                    "data-placement=\"bottom\" data-html=\"true\" " +
+                                    "data-content=\"" + blockpage_comment +"\">" + blockpage  + "</td>")
+                else:
+                    html_string += '<td class=' + bool_str_to_color(blockpage, True) + ' title=' + '"' + blockpage_comment + '"' + '>' + blockpage + '</td>'
             else:
                 html_string += blank_result
+            if "dns tampering" in result:
+                dns_tampering = str(result["dns tampering"])
+                dns_comment = ""
+                if "extra" in result and "dns tampering comment" in result["extra"]:
+                    dns_comment = "<span>%s</span>" % result["extra"]["dns tampering comment"]
+                if dns_comment:
+                    style = bool_str_to_color(dns_tampering, True)
+                    style += (" note_" + style)
+                    title = "DNS tampering on <em>" + result['url'] + "</em>:"
+                    html_string += ("<td class=\"" + style + "\" " + "title=\"" +  title +"\" " +
+                                    "data-container=\"body\" data-toggle=\"popover\" " +
+                                    "data-placement=\"bottom\" data-html=\"true\" " +
+                                    "data-content=\"" + dns_comment +"\">" + dns_tampering + "</td>")
+                else:
+                    html_string += '<td class=' + bool_str_to_color(dns_tampering, True) + ' title=' + '"' + dns_comment + '"' + '>' + dns_tampering + '</td>'
+            if "sequence number anomaly" in result:
+                seq_anom = str(result["sequence number anomaly"])
+                seq_comment = ""
+                if "extra" in result and "sequence number anomaly comment" in result["extra"]:
+                    seq_comment = result["extra"]["sequence number anomaly comment"]
+                if seq_comment:
+                    style = bool_str_to_color(seq_anom, True)
+                    style += (" note_" + style)
+                    title = "sequence number anomaly on <em>" + result['url'] + "</em>:"
+                    html_string += ("<td class=\"" + style + "\" " + "title=\"" + title + "\" " +
+                                    "data-container=\"body\" data-toggle=\"popover\" " +
+                                    "data-placement=\"bottom\" data-html=\"true\" " +
+                                    "data-content=\"" + seq_comment +"\">" + seq_anom + "</td>")
+                else:
+                    html_string += '<td class=' + bool_str_to_color(seq_anom, True) + ' title=' + '"' + seq_comment + '"' + '>' + seq_anom + '</td>'
+            else:
+                html_string += blank_result
+            if "ttl anomaly" in result:
+                ttl_anom = str(result["ttl anomaly"])
+                ttl_extra = None
+                if 'extra' in result:
+                    ttl_extra = result['extra']
+                ttl_comment = get_ttl_anomaly_comment(ttl_extra)
+                if ttl_comment:
+                    style = bool_str_to_color(ttl_anom, True)
+                    style += (" note_" + style)
+                    title = "TTL anomaly on <em>" + result['url'] + "</em>:"
+                    html_string += ("<td class=\"" + style + "\" " + "title=\"" + title + "\" " +
+                                    "data-container=\"body\" data-toggle=\"popover\" " +
+                                    "data-placement=\"bottom\" data-html=\"true\" " +
+                                    "data-content=\"" + ttl_comment +"\">" + ttl_anom + "</td>")
+                else:
+                    html_string += '<td class=' + bool_str_to_color(ttl_anom, True) + '>' + ttl_anom + '</td>'
+            else:
+                html_string += blank_result
+#            if "UDP traceroute succeed" in result:
+#                udp_success = str(result["UDP traceroute succeed"])
+#                udp_comment = ""
+#                if "UDP traceroute succeed comment" in result:
+#                    udp_comment = result["UDP traceroute succeed comment"]
+#                html_string += '<td class=' + bool_str_to_color(udp_success) + ' title=' + '"' + udp_comment + '"' + '>' + udp_success + '</td>'
+#            else:
+#                html_string += blank_result
             html_string += '</tr>'
         html_string += """</table>
 </div>
@@ -189,6 +277,48 @@ th, td {
             cache.check_cache(cache_directory, cache_limit)  # Check cache limit
     return html_string
 
+
+def get_ttl_anomaly_comment(extra):
+    ttl_comment = ""
+    if extra is not None and type(extra) == dict:
+        if "TTL anomalies" in extra:
+            if "SYN-ACK IPID" in extra:
+                ttl_comment += ("<span>SYN-ACK IPID: %d</span><br/>" %
+                                extra['SYN-ACK IPID'])
+                ttl_comment += ("<span>SYN-ACK TTL: %d</span><br/>" %
+                                extra['SYN-ACK TTL'])
+            else:
+                ttl_comment = ("<span>SYN-ACK IPID: not found</span><br/>" +
+                               "<span>SYN-ACK TTL: not found</span><br/>")
+            ttl_comment += tabulate_ttl_anomalies(extra["TTL anomalies"])
+    return ttl_comment
+
+
+def tabulate_ttl_anomalies(ttl_anomalies):
+    anomaly_table = ""
+    if (ttl_anomalies is not None and type(ttl_anomalies) == list and
+            len(ttl_anomalies) > 0):
+        anomaly_table += "<br/><span>Anomalies: </span><br/>"
+        anomaly_table += "<table class='table table-bordered'>"
+        anomaly_table += "  <tr>"
+        anomaly_table += "    <th class='col-sm-2'>No.</th>"
+        anomaly_table += "    <th class='col-sm-2'>IPID</th>"
+        anomaly_table += "    <th class='col-sm-2'>TTL</th>"
+        anomaly_table += "    <th class='col-sm-6'>RST packet?</th>"
+        anomaly_table += "  </tr>"
+        counter = 1
+        for anomaly_record in ttl_anomalies:
+            anomaly_table += "  <tr>"
+            anomaly_table += "    <td>%d</td>" % counter
+            anomaly_table += "    <td>%d</td>" % anomaly_record['IPID']
+            anomaly_table += "    <td>%d</td>" % anomaly_record['TTL']
+            rst_flag = str(anomaly_record['RST injection'])
+            style = bool_str_to_color(rst_flag, True)
+            anomaly_table += "    <td class='%s'>%s</td>" % (style, rst_flag)
+            anomaly_table += "  </tr>"
+            counter = counter + 1
+        anomaly_table += "</table>"
+    return anomaly_table
 
 @app.route("/")
 def display_select_result_html():

@@ -1,0 +1,100 @@
+[
+  {
+    "status": 200,
+    "ttl anomaly": false,
+    "url": "dropbox.com",
+    "sequence number anomaly": false,
+    "ttl anomaly": false,
+    "dns tampering": true,
+    "extra": {
+      "dns tampering comment": "Found two DNS responses: 1st response: [u'110.111.112.113', u'110.111.112.114'], 2nd response: [u'101.102.103.104', u'105.106.107.108', u'109.110.111.112', u'113.114.115.116', u'117.118.119.120']"
+    },
+    "block page": false
+  },
+  {
+    "status": 200,
+    "ttl anomaly": "N/A",
+    "url": "yahoo.com",
+    "sequence number anomaly": "N/A",
+    "extra": {
+      "sequence number anomaly comment": "This is a HTTPS connection.",
+      "ttl anomaly comment": "This is a HTTPS connection."
+    },
+    "dns tampering": false,
+    "block page": false
+  },
+  {
+    "status": 200,
+    "ttl anomaly": false,
+    "url": "reddit.com",
+    "sequence number anomaly": false,
+    "dns tampering": false,
+    "block page": false
+  },
+  {
+    "status": 200,
+    "ttl anomaly": true,
+    "url": "google.com",
+    "sequence number anomaly": true,
+    "dns tampering": false,
+    "extra": {
+      "sequence number anomaly comment": "Conflicting payload between: packet sequence No. 1 with size 587 and packet sequence No. 1 with size 101",
+      "SYN-ACK TTL": 50,
+      "SYN-ACK IPID": 28311,
+      "TTL anomalies": [
+        {
+          "IPID": 123,
+          "before SYN-ACK": false,
+          "RST injection": false,
+          "TTL": 40
+        },
+        {
+          "IPID": 123,
+          "before SYN-ACK": false,
+          "RST injection": true,
+          "TTL": 40
+        },
+        {
+          "IPID": 123,
+          "before SYN-ACK": false,
+          "RST injection": true,
+          "TTL": 40
+        },
+        {
+          "IPID": 125,
+          "before SYN-ACK": false,
+          "RST injection": true,
+          "TTL": 40
+        }
+      ]
+    },
+    "block page": false
+  },
+  {
+    "status": "N/A",
+    "ttl anomaly": "N/A",
+    "url": "ThisWillFail",
+    "sequence number anomaly": "N/A",
+    "dns tampering": "N/A",
+    "block page": "N/A"
+  },
+  {
+    "status": 300,
+    "ttl anomaly": "N/A",
+    "url": "facebook.com",
+    "sequence number anomaly": "N/A",
+    "dns tampering": true,
+    "extra": {
+      "dns tampering comment": "Found reserved IP: [u'10.0.0.1', u'10.0.0.2']"
+    },
+    "block page": false
+  },
+  {
+    "status": 200,
+    "ttl anomaly": false,
+    "url": "ebay.com",
+    "sequence number anomaly": false,
+    "dns tampering": false,
+    "block page": true
+  }
+]
